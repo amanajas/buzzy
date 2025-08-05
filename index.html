@@ -7,7 +7,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
+    <!-- Removed Lucide React - using Unicode symbols instead -->
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
         import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js';
@@ -85,10 +85,20 @@
     
     <script type="text/babel" data-type="module">
         const { useState, useRef, useCallback } = React;
-        const { 
-            Play, Square, Headphones, Volume2, Settings, Music, Brain, Heart, 
-            Search, Plus, X, Trash2 
-        } = LucideReact;
+        
+        // Simple icon components using Unicode symbols
+        const Play = () => React.createElement('span', null, '▶️');
+        const Square = () => React.createElement('span', null, '⏹️');
+        const Headphones = () => React.createElement('span', null, '🎧');
+        const Volume2 = () => React.createElement('span', null, '🔊');
+        const Settings = () => React.createElement('span', null, '⚙️');
+        const Music = () => React.createElement('span', null, '🎵');
+        const Brain = () => React.createElement('span', null, '🧠');
+        const Heart = () => React.createElement('span', null, '❤️');
+        const Search = () => React.createElement('span', null, '🔍');
+        const Plus = () => React.createElement('span', null, '➕');
+        const X = () => React.createElement('span', null, '❌');
+        const Trash2 = () => React.createElement('span', null, '🗑️');
         
         // Inline the entire app to avoid module loading issues
         const useAudioEngine = () => {

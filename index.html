@@ -233,10 +233,23 @@
                 updateFrequency('right', rightFreq);
             };
 
+            const updateWaveType = useCallback((newWaveType) => {
+                setWaveType(newWaveType);
+                
+                // Update active oscillators if playing
+                if (leftOscillatorRef.current) {
+                    leftOscillatorRef.current.type = newWaveType;
+                }
+                if (rightOscillatorRef.current) {
+                    rightOscillatorRef.current.type = newWaveType;
+                }
+            }, []);
+
             return {
                 isPlaying, leftFreq, rightFreq, leftVolume, rightVolume, waveType,
                 setLeftFreq, setRightFreq, setLeftVolume, setRightVolume, setWaveType,
-                startAudio, stopAudio, updateFrequency, updateVolume, applyFrequency, applyBinauralBeat
+                startAudio, stopAudio, updateFrequency, updateVolume, applyFrequency, applyBinauralBeat,
+                updateWaveType
             };
         };
 
@@ -429,13 +442,12 @@
                                     {['sine', 'square', 'sawtooth', 'triangle'].map((type) => (
                                         <button
                                             key={type}
-                                            onClick={() => audioEngine.setWaveType(type)}
+                                            onClick={() => audioEngine.updateWaveType(type)}
                                             className={`py-2 px-3 text-sm rounded-xl border-2 transition-all active:scale-95 ${
                                                 audioEngine.waveType === type
                                                     ? 'bg-purple-500 text-white border-purple-500 shadow-md'
                                                     : 'bg-white text-gray-700 border-gray-300'
                                             }`}
-                                            disabled={audioEngine.isPlaying}
                                         >
                                             {type.charAt(0).toUpperCase() + type.slice(1)}
                                         </button>

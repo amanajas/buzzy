@@ -188,18 +188,40 @@
             }, []);
 
             const updateFrequency = useCallback((channel, frequency) => {
-                if (channel === 'left' && leftOscillatorRef.current) {
-                    leftOscillatorRef.current.frequency.setValueAtTime(
-                        frequency, 
-                        audioContextRef.current.currentTime
-                    );
-                } else if (channel === 'right' && rightOscillatorRef.current) {
-                    rightOscillatorRef.current.frequency.setValueAtTime(
-                        frequency, 
-                        audioContextRef.current.currentTime
-                    );
+                if (!audioContextRef.current || (!leftOscillatorRef.current && !rightOscillatorRef.current)) {
+                    return;
                 }
-            }, []);
+
+                const audioContext = audioContextRef.current;
+                
+                if (channel === 'left' && leftOscillatorRef.current) {
+                    // Stop current left oscillator
+                    leftOscillatorRef.current.stop();
+                    leftOscillatorRef.current.disconnect();
+                    
+                    // Create new left oscillator with current wave type
+                    leftOscillatorRef.current = audioContext.createOscillator();
+                    leftOscillatorRef.current.type = waveType;
+                    leftOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                    
+                    // Reconnect
+                    leftOscillatorRef.current.connect(leftGainRef.current);
+                    leftOscillatorRef.current.start();
+                } else if (channel === 'right' && rightOscillatorRef.current) {
+                    // Stop current right oscillator
+                    rightOscillatorRef.current.stop();
+                    rightOscillatorRef.current.disconnect();
+                    
+                    // Create new right oscillator with current wave type
+                    rightOscillatorRef.current = audioContext.createOscillator();
+                    rightOscillatorRef.current.type = waveType;
+                    rightOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                    
+                    // Reconnect
+                    rightOscillatorRef.current.connect(rightGainRef.current);
+                    rightOscillatorRef.current.start();
+                }
+            }, [waveType]);
 
             const updateVolume = useCallback((channel, volume) => {
                 if (channel === 'left' && leftGainRef.current) {
@@ -236,14 +258,35 @@
             const updateWaveType = useCallback((newWaveType) => {
                 setWaveType(newWaveType);
                 
-                // Update active oscillators if playing
-                if (leftOscillatorRef.current) {
-                    leftOscillatorRef.current.type = newWaveType;
+                // Recreate oscillators with new wave type if playing
+                if (audioContextRef.current && (leftOscillatorRef.current || rightOscillatorRef.current)) {
+                    const audioContext = audioContextRef.current;
+                    
+                    if (leftOscillatorRef.current) {
+                        const currentLeftFreq = leftFreq;
+                        leftOscillatorRef.current.stop();
+                        leftOscillatorRef.current.disconnect();
+                        
+                        leftOscillatorRef.current = audioContext.createOscillator();
+                        leftOscillatorRef.current.type = newWaveType;
+                        leftOscillatorRef.current.frequency.setValueAtTime(currentLeftFreq, audioContext.currentTime);
+                        leftOscillatorRef.current.connect(leftGainRef.current);
+                        leftOscillatorRef.current.start();
+                    }
+                    
+                    if (rightOscillatorRef.current) {
+                        const currentRightFreq = rightFreq;
+                        rightOscillatorRef.current.stop();
+                        rightOscillatorRef.current.disconnect();
+                        
+                        rightOscillatorRef.current = audioContext.createOscillator();
+                        rightOscillatorRef.current.type = newWaveType;
+                        rightOscillatorRef.current.frequency.setValueAtTime(currentRightFreq, audioContext.currentTime);
+                        rightOscillatorRef.current.connect(rightGainRef.current);
+                        rightOscillatorRef.current.start();
+                    }
                 }
-                if (rightOscillatorRef.current) {
-                    rightOscillatorRef.current.type = newWaveType;
-                }
-            }, []);
+            }, [leftFreq, rightFreq]);
 
             return {
                 isPlaying, leftFreq, rightFreq, leftVolume, rightVolume, waveType,

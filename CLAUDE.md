@@ -67,8 +67,18 @@ The application has been organized into a modular structure with separate compon
 ```
 /
 ├── index.jsx                           # Entry point (imports from src/App)
+├── index.html                          # HTML template for deployment
+├── package.json                        # NPM dependencies and scripts
+├── firebase.json                       # Firebase hosting configuration
+├── .env                               # Environment variables (not committed)
+├── .gitignore                         # Git ignore rules
+├── .github/
+│   └── workflows/
+│       └── firebase-deploy.yml        # GitHub Actions CI/CD workflow
 ├── src/
 │   ├── App.jsx                        # Main application component
+│   ├── firebase/
+│   │   └── config.js                  # Firebase initialization
 │   ├── hooks/
 │   │   └── useAudioEngine.js          # Audio engine custom hook
 │   ├── components/
@@ -91,8 +101,76 @@ The application has been organized into a modular structure with separate compon
 - `useAudioEngine` hook provides audio functionality to any component that needs it
 - Components are designed to be reusable and have clear prop interfaces
 
+## Firebase Setup
+
+The project is configured to use Firebase for analytics and potential future features.
+
+### Configuration Files
+- `.env` - Contains Firebase configuration variables (not committed to git)
+- `src/firebase/config.js` - Firebase initialization using environment variables
+
+### Environment Variables
+Required environment variables in `.env`:
+```
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+### Usage
+Import Firebase services from `src/firebase/config.js`:
+```javascript
+import { app, analytics } from './firebase/config';
+```
+
+## GitHub Actions CI/CD
+
+The project includes automated testing and deployment to Firebase Hosting via GitHub Actions.
+
+### Workflow Configuration
+- **File**: `.github/workflows/firebase-deploy.yml`
+- **Triggers**: Push to `main` branch, Pull Requests
+- **Jobs**: 
+  - `test`: Runs tests and builds the application
+  - `deploy`: Deploys to Firebase Hosting (only on main branch pushes)
+
+### Required GitHub Secrets
+To enable deployment, configure these secrets in your GitHub repository settings:
+
+**Firebase Configuration:**
+- `REACT_APP_FIREBASE_API_KEY`
+- `REACT_APP_FIREBASE_AUTH_DOMAIN`
+- `REACT_APP_FIREBASE_PROJECT_ID`
+- `REACT_APP_FIREBASE_STORAGE_BUCKET`
+- `REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
+- `REACT_APP_FIREBASE_APP_ID`
+- `REACT_APP_FIREBASE_MEASUREMENT_ID`
+
+**Firebase Service Account:**
+- `FIREBASE_SERVICE_ACCOUNT_BUZZY_FE536` - JSON service account key
+
+### Setting Up Firebase Service Account
+1. Go to Firebase Console → Project Settings → Service Accounts
+2. Generate new private key (downloads JSON file)
+3. Copy entire JSON content to GitHub secret `FIREBASE_SERVICE_ACCOUNT_BUZZY_FE536`
+
+### Build Process
+- `npm run build` creates a `dist/` folder with static files
+- Firebase Hosting serves from the `dist/` directory
+- Includes HTML file with CDN dependencies for React and Firebase
+
+## Dependencies
+
+- `firebase` - Firebase SDK for analytics and future features
+- React and Lucide React icons (loaded via CDN)
+- Tailwind CSS (loaded via CDN)
+
 ## Browser Requirements
 
 - Modern browser with Web Audio API support
 - Headphones recommended for binaural beat functionality
-- No external dependencies beyond React and Lucide React icons
+- JavaScript enabled for Firebase analytics

@@ -1,0 +1,27 @@
+{
+  "name": "buzzy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/ && cp index.jsx dist/ && cp -r src dist/",
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "echo \"Use a local server to serve the files\" && exit 0",
+    "dev": "echo \"Development server not configured\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanajas/buzzy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/amanajas/buzzy/issues"
+  },
+  "homepage": "https://github.com/amanajas/buzzy#readme",
+  "dependencies": {
+    "firebase": "^12.0.0"
+  }
+}

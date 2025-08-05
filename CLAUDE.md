@@ -138,10 +138,14 @@ The project includes automated testing and deployment to Firebase Hosting via Gi
   - `test`: Runs tests and builds the application
   - `deploy`: Deploys to Firebase Hosting (only on main branch pushes)
 
-### Required GitHub Secrets
-To enable deployment, configure these secrets in your GitHub repository settings:
+### Required GitHub Environment Setup
+To enable deployment, configure a GitHub Environment named "FIREBASE" in your repository settings:
 
-**Firebase Configuration:**
+1. **Go to GitHub Repository Settings → Environments**
+2. **Create Environment named "FIREBASE"**
+3. **Add Environment Secrets:**
+
+**Firebase Configuration Secrets:**
 - `REACT_APP_FIREBASE_API_KEY`
 - `REACT_APP_FIREBASE_AUTH_DOMAIN`
 - `REACT_APP_FIREBASE_PROJECT_ID`
@@ -156,7 +160,13 @@ To enable deployment, configure these secrets in your GitHub repository settings
 ### Setting Up Firebase Service Account
 1. Go to Firebase Console → Project Settings → Service Accounts
 2. Generate new private key (downloads JSON file)
-3. Copy entire JSON content to GitHub secret `FIREBASE_SERVICE_ACCOUNT_BUZZY_FE536`
+3. Copy entire JSON content to GitHub environment secret `FIREBASE_SERVICE_ACCOUNT_BUZZY_FE536`
+
+### Environment Benefits
+- Centralized secret management
+- Environment-specific deployment controls
+- Better security isolation
+- Deployment approval workflows (optional)
 
 ### Build Process
 - `npm run build` creates a `dist/` folder with static files

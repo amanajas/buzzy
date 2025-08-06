@@ -1,0 +1,16 @@
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/CategoryTabs.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/SearchBar.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/CustomFrequencyForm.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/audio/AudioEngine.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/FrequencyApp.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/theme/Type.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/StatusDisplay.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/FrequencyViewModel.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/MainControls.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/FrequencyList.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/models/Frequency.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/Footer.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/data/FrequencyDatabase.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/theme/Theme.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/MainActivity.kt
+/home/ta/Projects/buzzy/android-app/app/src/main/java/com/buzzy/frequencyapp/ui/components/Header.kt

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="#667EEA"
+        android:pathData="M24,24m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+    
+    <!-- Sound wave icon -->
+    <group android:translateX="24" android:translateY="24">
+        <!-- Center bar -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-1,-8L1,-8L1,8L-1,8Z" />
+        
+        <!-- Side bars -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-4,-6L-3,-6L-3,6L-4,6Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M3,-6L4,-6L4,6L3,6Z" />
+        
+        <!-- Outer bars -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-7,-4L-6,-4L-6,4L-7,4Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,-4L7,-4L7,4L6,4Z" />
+    </group>
+</vector>

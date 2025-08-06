@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#667EEA"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+    
+    <!-- Sound wave icon -->
+    <group android:translateX="54" android:translateY="54">
+        <!-- Center line -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-2,-15L2,-15L2,15L-2,15Z" />
+        
+        <!-- Left waves -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-8,-12L-6,-12L-6,12L-8,12Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-14,-8L-12,-8L-12,8L-14,8Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-20,-5L-18,-5L-18,5L-20,5Z" />
+        
+        <!-- Right waves -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M6,-12L8,-12L8,12L6,12Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,-8L14,-8L14,8L12,8Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M18,-5L20,-5L20,5L18,5Z" />
+    </group>
+</vector>

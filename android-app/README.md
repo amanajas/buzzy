@@ -148,6 +148,11 @@ If Android Studio is unavailable, you can try:
   - Check that package name matches Firebase project configuration
   - Ensure Firebase plugin is applied in `app/build.gradle`
 
+- **Resource/Icon errors**:
+  - The project includes custom launcher icons with sound wave design
+  - Icons are provided in all required densities (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi)
+  - Both vector drawables and adaptive icons are included for modern Android versions
+
 ### Runtime Issues
 - **Audio not playing**: 
   - Test on physical device (emulator audio can be unreliable)

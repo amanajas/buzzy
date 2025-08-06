@@ -16,35 +16,48 @@ Native Android implementation of the Frequency Generator and Binaural Beats appl
 
 ## Requirements
 
-- Android Studio Arctic Fox or later
-- Android SDK 34
+- Android Studio Flamingo or later (2022.2.1+)
+- Java Development Kit (JDK) 11 or later
+- Android SDK with API 33
 - Minimum Android API 24 (Android 7.0)
-- Kotlin 1.9.20 or later
+- Gradle 7.6 (automatically handled by Android Studio)
 
 ## Setup Instructions
 
-1. **Clone the repository**
+1. **Prerequisites**
+   - Install [Android Studio](https://developer.android.com/studio) (latest stable version)
+   - Install Java 11+ if not included with Android Studio
+   - Configure Android SDK (API 33 recommended)
+
+2. **Clone the repository**
    ```bash
    cd android-app
    ```
 
-2. **Configure Firebase**
+3. **Configure Firebase**
    - Go to [Firebase Console](https://console.firebase.google.com)
    - Create/select your project (buzzy-fe536)
    - Add an Android app with package name: `com.buzzy.frequencyapp`
    - Download `google-services.json`
    - Replace the placeholder file at `app/google-services.json`
 
-3. **Open in Android Studio**
-   - Open Android Studio
-   - Select "Open an existing project"
-   - Navigate to the `android-app` folder
-   - Let Gradle sync complete
+4. **Open in Android Studio**
+   - Launch Android Studio
+   - Select "Open" (not "Import")
+   - Navigate to and select the `android-app` folder
+   - Android Studio will automatically:
+     - Download the correct Gradle version (7.6)
+     - Sync all dependencies
+     - Set up the build environment
+   - Wait for initial sync to complete (may take 5-10 minutes)
 
-4. **Build and Run**
-   - Connect an Android device or start an emulator
-   - Click "Run" or press Shift+F10
-   - The app will build and install on your device
+5. **Build and Run**
+   - Ensure Gradle sync is complete (check status bar)
+   - Connect an Android device with USB debugging enabled, or
+   - Start an Android Virtual Device (AVD) from AVD Manager
+   - Click the "Run" button (▷) or press Shift+F10
+   - Select your target device
+   - The app will build, install, and launch automatically
 
 ## Project Structure
 
@@ -97,6 +110,40 @@ Run tests with:
 
 ## Troubleshooting
 
-- **Audio not playing**: Ensure device volume is up and not in silent mode
-- **Firebase errors**: Verify `google-services.json` is correctly configured
-- **Build failures**: Try "File → Invalidate Caches and Restart" in Android Studio
+### Common Build Issues
+- **Gradle sync failed**: 
+  - File → Invalidate Caches and Restart
+  - Check internet connection (Gradle downloads dependencies)
+  - Ensure Java 11+ is installed and configured
+  - Try Build → Clean Project, then Build → Rebuild Project
+
+- **SDK/API version issues**:
+  - Open SDK Manager (Tools → SDK Manager)
+  - Install Android API 33 and latest build tools
+  - Accept all license agreements
+
+- **Firebase build errors**: 
+  - Verify `google-services.json` is in `app/` folder (not root)
+  - Check that package name matches Firebase project configuration
+  - Ensure Firebase plugin is applied in `app/build.gradle`
+
+### Runtime Issues
+- **Audio not playing**: 
+  - Test on physical device (emulator audio can be unreliable)
+  - Check device volume and ensure not in silent mode
+  - Grant audio permissions if prompted
+
+- **App crashes on startup**:
+  - Check Logcat for error details
+  - Verify Firebase configuration is correct
+  - Test on different Android API levels
+
+### Performance Tips
+- **Slow build times**: 
+  - Enable Gradle daemon in gradle.properties
+  - Increase Android Studio memory allocation
+  - Use SSD storage for project files
+
+- **Audio latency**: 
+  - Test on physical device for best audio performance
+  - Lower buffer sizes may improve latency but increase CPU usage

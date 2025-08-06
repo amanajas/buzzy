@@ -16,11 +16,17 @@ Native Android implementation of the Frequency Generator and Binaural Beats appl
 
 ## Requirements
 
-- Android Studio Flamingo or later (2022.2.1+)
-- Java Development Kit (JDK) 11 or later
-- Android SDK with API 33
-- Minimum Android API 24 (Android 7.0)
-- Gradle 7.6 (automatically handled by Android Studio)
+- **Android Studio Hedgehog or later (2023.1.1+)**
+- **Java Development Kit (JDK) 11 or later** (JDK 21 is supported)
+- **Android SDK with API 34**
+- **Minimum Android API 24** (Android 7.0)
+- **Gradle 8.5** (automatically handled by Android Studio)
+
+### Important Note for Java 21 Users
+If you're using Java 21 (like your current system), you need:
+- Gradle 8.5 or later
+- Android Gradle Plugin 8.2.0 or later
+- These are already configured in this project
 
 ## Setup Instructions
 
@@ -46,10 +52,10 @@ Native Android implementation of the Frequency Generator and Binaural Beats appl
    - Select "Open" (not "Import")
    - Navigate to and select the `android-app` folder
    - Android Studio will automatically:
-     - Download the correct Gradle version (7.6)
+     - Download the correct Gradle version (8.5) - compatible with Java 21
      - Sync all dependencies
      - Set up the build environment
-   - Wait for initial sync to complete (may take 5-10 minutes)
+   - Wait for initial sync to complete (may take 5-10 minutes on first run)
 
 5. **Build and Run**
    - Ensure Gradle sync is complete (check status bar)
@@ -89,13 +95,21 @@ android-app/
 - **Coroutines**: For asynchronous audio generation
 - **AudioTrack API**: Low-level audio playback for precise frequency control
 
-## Testing
+## Command Line Builds (Optional)
 
-Run tests with:
+**Important**: This project is designed to be built with Android Studio. Command line builds require proper Gradle wrapper setup.
+
+If Android Studio is unavailable, you can try:
 ```bash
+# This requires the Gradle wrapper JAR file which Android Studio generates
+./gradlew build
+
+# Run tests
 ./gradlew test
 ./gradlew connectedAndroidTest
 ```
+
+**Note**: The Gradle wrapper needs to be initialized by Android Studio first.
 
 ## Release Build
 
@@ -111,10 +125,17 @@ Run tests with:
 ## Troubleshooting
 
 ### Common Build Issues
+
+#### Java Version Compatibility
+- **"Unsupported class file major version 65"**: 
+  - This means you're using Java 21 but with an older Gradle version
+  - This project is configured for Java 21 with Gradle 8.5
+  - If using different Java version, update `gradle/wrapper/gradle-wrapper.properties`
+
 - **Gradle sync failed**: 
   - File → Invalidate Caches and Restart
   - Check internet connection (Gradle downloads dependencies)
-  - Ensure Java 11+ is installed and configured
+  - Ensure correct Java version is configured in Android Studio
   - Try Build → Clean Project, then Build → Rebuild Project
 
 - **SDK/API version issues**:

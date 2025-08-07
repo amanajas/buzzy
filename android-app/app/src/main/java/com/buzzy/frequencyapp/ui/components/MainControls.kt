@@ -1,6 +1,9 @@
 package com.buzzy.frequencyapp.ui.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
@@ -59,39 +62,62 @@ fun MainControls(
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant
+                containerColor = Color(0xFF1E2139)
             )
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp)
+                    .padding(16.dp)
             ) {
                 Text(
                     text = "Wave Type",
-                    style = MaterialTheme.typography.labelMedium
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.White
                 )
                 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                Spacer(modifier = Modifier.height(12.dp))
+                
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.height(120.dp)
                 ) {
-                    AudioEngine.WaveType.values().forEach { type ->
-                        FilterChip(
-                            selected = waveType == type,
-                            onClick = { onWaveTypeChange(type) },
-                            label = {
+                    items(AudioEngine.WaveType.values().toList()) { type ->
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(52.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = if (waveType == type) Color(0xFF4F46E5) else Color(0xFF374151)
+                            ),
+                            onClick = { onWaveTypeChange(type) }
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
                                 Text(
                                     text = when(type) {
                                         AudioEngine.WaveType.SINE -> "∿"
                                         AudioEngine.WaveType.SQUARE -> "⊓"
                                         AudioEngine.WaveType.SAWTOOTH -> "⋰"
                                         AudioEngine.WaveType.TRIANGLE -> "△"
-                                    } + " " + type.name.lowercase().capitalize()
+                                    },
+                                    color = Color.White,
+                                    style = MaterialTheme.typography.titleLarge
                                 )
-                            },
-                            modifier = Modifier.padding(horizontal = 4.dp)
-                        )
+                                Text(
+                                    text = type.name.lowercase().replaceFirstChar { it.uppercase() },
+                                    color = Color.White.copy(alpha = 0.8f),
+                                    style = MaterialTheme.typography.labelSmall
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -103,17 +129,18 @@ fun MainControls(
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant
+                containerColor = Color(0xFF1E2139)
             )
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp)
+                    .padding(16.dp)
             ) {
                 Text(
                     text = "Quick Frequency (20-20000 Hz)",
-                    style = MaterialTheme.typography.labelMedium
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.White
                 )
                 
                 Row(
@@ -125,8 +152,14 @@ fun MainControls(
                         onValueChange = { quickFrequency = it },
                         modifier = Modifier.weight(1f),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        placeholder = { Text("Enter Hz") },
-                        singleLine = true
+                        placeholder = { Text("Enter Hz", color = Color.White.copy(alpha = 0.6f)) },
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(0xFF4F46E5),
+                            unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                            focusedTextColor = Color.White,
+                            unfocusedTextColor = Color.White
+                        )
                     )
                     
                     Spacer(modifier = Modifier.width(8.dp))
@@ -140,7 +173,11 @@ fun MainControls(
                                 }
                             }
                         },
-                        enabled = quickFrequency.isNotEmpty()
+                        enabled = quickFrequency.isNotEmpty(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF4F46E5),
+                            contentColor = Color.White
+                        )
                     ) {
                         Text("Apply")
                     }

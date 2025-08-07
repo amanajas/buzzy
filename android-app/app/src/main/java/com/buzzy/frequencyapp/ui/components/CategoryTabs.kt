@@ -2,6 +2,7 @@ package com.buzzy.frequencyapp.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,7 +18,9 @@ fun CategoryTabs(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp),
-        edgePadding = 16.dp
+        edgePadding = 16.dp,
+        containerColor = Color(0xFF1E2139),
+        contentColor = Color.White
     ) {
         categories.forEach { category ->
             Tab(
@@ -31,7 +34,7 @@ fun CategoryTabs(
                             "musical" -> "🎵 Musical"
                             "binaural" -> "🎧 Binaural"
                             "brainwaves" -> "🧠 Brainwaves"
-                            else -> category.capitalize()
+                            else -> category.replaceFirstChar { it.uppercase() }
                         }
                     )
                 }

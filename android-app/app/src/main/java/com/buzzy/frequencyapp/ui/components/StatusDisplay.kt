@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.buzzy.frequencyapp.audio.AudioEngine
 
+@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun StatusDisplay(
     leftFreq: Float,
@@ -21,6 +23,8 @@ fun StatusDisplay(
     isPlaying: Boolean,
     leftVolume: Float,
     rightVolume: Float,
+    selectedLeftFrequency: com.buzzy.frequencyapp.models.FrequencyItem?,
+    selectedRightFrequency: com.buzzy.frequencyapp.models.FrequencyItem?,
     onVolumeChange: (AudioEngine.Channel, Float) -> Unit
 ) {
     Column(
@@ -29,37 +33,118 @@ fun StatusDisplay(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Frequency Display
-        Row(
+        // Selected Frequencies Display
+        Card(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF1E2139)
+            )
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp)
+            ) {
                 Text(
-                    text = "Left",
-                    fontSize = 12.sp,
-                    color = Color.Gray
+                    text = "Selected Frequencies",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
                 )
-                Text(
-                    text = "${String.format("%.2f", leftFreq)} Hz",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = if (isPlaying) MaterialTheme.colorScheme.primary else Color.Gray
-                )
-            }
-            
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = "Right",
-                    fontSize = 12.sp,
-                    color = Color.Gray
-                )
-                Text(
-                    text = "${String.format("%.2f", rightFreq)} Hz",
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = if (isPlaying) MaterialTheme.colorScheme.primary else Color.Gray
-                )
+                
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    // Left Ear Selection
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Text(
+                            text = "🎧 Left Ear",
+                            fontSize = 12.sp,
+                            color = Color.White.copy(alpha = 0.7f)
+                        )
+                        
+                        if (selectedLeftFrequency != null) {
+                            Text(
+                                text = when (selectedLeftFrequency) {
+                                    is com.buzzy.frequencyapp.models.FrequencyItem.Mono -> selectedLeftFrequency.frequency.name
+                                    is com.buzzy.frequencyapp.models.FrequencyItem.Binaural -> "${selectedLeftFrequency.frequency.name} (L)"
+                                },
+                                fontSize = 10.sp,
+                                color = Color(0xFF4F46E5),
+                                maxLines = 2
+                            )
+                            Text(
+                                text = "${String.format("%.1f", leftFreq)} Hz",
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isPlaying) Color(0xFF4F46E5) else Color.White.copy(alpha = 0.8f)
+                            )
+                            
+                        } else {
+                            Text(
+                                text = "No frequency selected",
+                                fontSize = 10.sp,
+                                color = Color.White.copy(alpha = 0.5f)
+                            )
+                            Text(
+                                text = "Silent",
+                                fontSize = 14.sp,
+                                color = Color.White.copy(alpha = 0.3f)
+                            )
+                        }
+                    }
+                    
+                    Spacer(modifier = Modifier.width(8.dp))
+                    
+                    // Right Ear Selection
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Text(
+                            text = "🎧 Right Ear",
+                            fontSize = 12.sp,
+                            color = Color.White.copy(alpha = 0.7f)
+                        )
+                        
+                        if (selectedRightFrequency != null) {
+                            Text(
+                                text = when (selectedRightFrequency) {
+                                    is com.buzzy.frequencyapp.models.FrequencyItem.Mono -> selectedRightFrequency.frequency.name
+                                    is com.buzzy.frequencyapp.models.FrequencyItem.Binaural -> "${selectedRightFrequency.frequency.name} (R)"
+                                },
+                                fontSize = 10.sp,
+                                color = Color(0xFF4F46E5),
+                                maxLines = 2
+                            )
+                            Text(
+                                text = "${String.format("%.1f", rightFreq)} Hz",
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isPlaying) Color(0xFF4F46E5) else Color.White.copy(alpha = 0.8f)
+                            )
+                            
+                        } else {
+                            Text(
+                                text = "No frequency selected",
+                                fontSize = 10.sp,
+                                color = Color.White.copy(alpha = 0.5f)
+                            )
+                            Text(
+                                text = "Silent",
+                                fontSize = 14.sp,
+                                color = Color.White.copy(alpha = 0.3f)
+                            )
+                        }
+                    }
+                }
             }
         }
         
@@ -67,7 +152,21 @@ fun StatusDisplay(
             Text(
                 text = "♫ Playing ♫",
                 fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.primary,
+                color = Color(0xFF4F46E5),
+                modifier = Modifier.padding(top = 8.dp)
+            )
+        } else if (selectedLeftFrequency != null || selectedRightFrequency != null) {
+            Text(
+                text = "● Ready to Play ●",
+                fontSize = 14.sp,
+                color = Color(0xFF10B981),
+                modifier = Modifier.padding(top = 8.dp)
+            )
+        } else {
+            Text(
+                text = "⚪ Select frequencies to play",
+                fontSize = 14.sp,
+                color = Color.White.copy(alpha = 0.6f),
                 modifier = Modifier.padding(top = 8.dp)
             )
         }
@@ -87,12 +186,13 @@ fun StatusDisplay(
                     imageVector = Icons.Default.VolumeUp,
                     contentDescription = "Left Volume",
                     modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = Color.White
                 )
                 Text(
                     text = "L",
                     modifier = Modifier.padding(horizontal = 8.dp),
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    color = Color.White
                 )
                 Slider(
                     value = leftVolume,
@@ -104,7 +204,8 @@ fun StatusDisplay(
                     text = "${(leftVolume * 100).toInt()}%",
                     modifier = Modifier.width(40.dp),
                     textAlign = TextAlign.End,
-                    fontSize = 12.sp
+                    fontSize = 12.sp,
+                    color = Color.White
                 )
             }
             
@@ -117,12 +218,13 @@ fun StatusDisplay(
                     imageVector = Icons.Default.VolumeUp,
                     contentDescription = "Right Volume",
                     modifier = Modifier.size(20.dp),
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = Color.White
                 )
                 Text(
                     text = "R",
                     modifier = Modifier.padding(horizontal = 8.dp),
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    color = Color.White
                 )
                 Slider(
                     value = rightVolume,
@@ -134,7 +236,8 @@ fun StatusDisplay(
                     text = "${(rightVolume * 100).toInt()}%",
                     modifier = Modifier.width(40.dp),
                     textAlign = TextAlign.End,
-                    fontSize = 12.sp
+                    fontSize = 12.sp,
+                    color = Color.White
                 )
             }
         }

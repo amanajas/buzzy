@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,7 +21,7 @@ fun SearchBar(
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
+            containerColor = Color(0xFF1E2139)
         )
     ) {
         Row(
@@ -33,7 +34,7 @@ fun SearchBar(
                 imageVector = Icons.Default.Search,
                 contentDescription = "Search",
                 modifier = Modifier.size(24.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                tint = Color.White
             )
             
             Spacer(modifier = Modifier.width(8.dp))
@@ -42,11 +43,13 @@ fun SearchBar(
                 value = searchTerm,
                 onValueChange = onSearchTermChange,
                 modifier = Modifier.weight(1f),
-                placeholder = { Text("Search frequencies...") },
+                placeholder = { Text("Search frequencies...", color = Color.White.copy(alpha = 0.6f)) },
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = MaterialTheme.colorScheme.primary,
-                    unfocusedBorderColor = MaterialTheme.colorScheme.outline
+                    focusedBorderColor = Color(0xFF4F46E5),
+                    unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.White
                 )
             )
             
@@ -57,7 +60,7 @@ fun SearchBar(
                     Icon(
                         imageVector = Icons.Default.Clear,
                         contentDescription = "Clear search",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        tint = Color.White
                     )
                 }
             }

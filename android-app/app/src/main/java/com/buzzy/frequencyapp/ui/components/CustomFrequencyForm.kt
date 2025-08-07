@@ -6,6 +6,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +34,11 @@ fun CustomFrequencyForm(
     ) {
         Button(
             onClick = onToggleForm,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF4F46E5),
+                contentColor = Color.White
+            )
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
@@ -49,7 +54,7 @@ fun CustomFrequencyForm(
                     .fillMaxWidth()
                     .padding(top = 8.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant
+                    containerColor = Color(0xFF1E2139)
                 )
             ) {
                 Column(
@@ -80,9 +85,15 @@ fun CustomFrequencyForm(
                     OutlinedTextField(
                         value = name,
                         onValueChange = { name = it },
-                        label = { Text("Name") },
+                        label = { Text("Name", color = Color.White.copy(alpha = 0.7f)) },
                         modifier = Modifier.fillMaxWidth(),
-                        singleLine = true
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(0xFF4F46E5),
+                            unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                            focusedTextColor = Color.White,
+                            unfocusedTextColor = Color.White
+                        )
                     )
                     
                     Spacer(modifier = Modifier.height(8.dp))
@@ -91,9 +102,15 @@ fun CustomFrequencyForm(
                     OutlinedTextField(
                         value = description,
                         onValueChange = { description = it },
-                        label = { Text("Description") },
+                        label = { Text("Description", color = Color.White.copy(alpha = 0.7f)) },
                         modifier = Modifier.fillMaxWidth(),
-                        singleLine = true
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(0xFF4F46E5),
+                            unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                            focusedTextColor = Color.White,
+                            unfocusedTextColor = Color.White
+                        )
                     )
                     
                     Spacer(modifier = Modifier.height(8.dp))
@@ -103,10 +120,16 @@ fun CustomFrequencyForm(
                         OutlinedTextField(
                             value = frequency,
                             onValueChange = { frequency = it },
-                            label = { Text("Frequency (Hz)") },
+                            label = { Text("Frequency (Hz)", color = Color.White.copy(alpha = 0.7f)) },
                             modifier = Modifier.fillMaxWidth(),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                            singleLine = true
+                            singleLine = true,
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = Color(0xFF4F46E5),
+                                unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                                focusedTextColor = Color.White,
+                                unfocusedTextColor = Color.White
+                            )
                         )
                     } else {
                         Row(
@@ -116,18 +139,30 @@ fun CustomFrequencyForm(
                             OutlinedTextField(
                                 value = leftFreq,
                                 onValueChange = { leftFreq = it },
-                                label = { Text("Left (Hz)") },
+                                label = { Text("Left (Hz)", color = Color.White.copy(alpha = 0.7f)) },
                                 modifier = Modifier.weight(1f),
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                                singleLine = true
+                                singleLine = true,
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedBorderColor = Color(0xFF4F46E5),
+                                    unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                                    focusedTextColor = Color.White,
+                                    unfocusedTextColor = Color.White
+                                )
                             )
                             OutlinedTextField(
                                 value = rightFreq,
                                 onValueChange = { rightFreq = it },
-                                label = { Text("Right (Hz)") },
+                                label = { Text("Right (Hz)", color = Color.White.copy(alpha = 0.7f)) },
                                 modifier = Modifier.weight(1f),
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                                singleLine = true
+                                singleLine = true,
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedBorderColor = Color(0xFF4F46E5),
+                                    unfocusedBorderColor = Color.White.copy(alpha = 0.3f),
+                                    focusedTextColor = Color.White,
+                                    unfocusedTextColor = Color.White
+                                )
                             )
                         }
                     }
@@ -164,7 +199,11 @@ fun CustomFrequencyForm(
                             }
                         },
                         modifier = Modifier.fillMaxWidth(),
-                        enabled = name.isNotEmpty()
+                        enabled = name.isNotEmpty(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF4F46E5),
+                            contentColor = Color.White
+                        )
                     ) {
                         Text("Save Custom Frequency")
                     }

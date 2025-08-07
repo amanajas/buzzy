@@ -23,8 +23,8 @@ fun Header() {
             .background(
                 Brush.linearGradient(
                     colors = listOf(
-                        Color(0xFF667EEA),
-                        Color(0xFF764BA2)
+                        Color(0xFF4F46E5),
+                        Color(0xFF7C3AED)
                     )
                 )
             )

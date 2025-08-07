@@ -12,13 +12,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.buzzy.frequencyapp.data.DataManager
 import com.buzzy.frequencyapp.ui.components.*
 
 @Composable
 fun FrequencyApp(
-    viewModel: FrequencyViewModel = viewModel()
+    viewModel: FrequencyViewModel = viewModel(
+        factory = FrequencyViewModelFactory(
+            DataManager(LocalContext.current)
+        )
+    )
 ) {
     val uiState by viewModel.uiState.collectAsState()
     
@@ -28,8 +34,8 @@ fun FrequencyApp(
             .background(
                 Brush.linearGradient(
                     colors = listOf(
-                        Color(0xFFEDE7F6),
-                        Color(0xFFE3F2FD)
+                        Color(0xFF1A1B2E),
+                        Color(0xFF16213E)
                     )
                 )
             )
@@ -45,7 +51,10 @@ fun FrequencyApp(
                     .fillMaxWidth()
                     .weight(1f),
                 shape = RoundedCornerShape(24.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF0F1425)
+                )
             ) {
                 Column(
                     modifier = Modifier
@@ -55,7 +64,10 @@ fun FrequencyApp(
                     // Header
                     Header()
                     
-                    Divider(modifier = Modifier.padding(horizontal = 16.dp))
+                    Divider(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        color = Color.White.copy(alpha = 0.1f)
+                    )
                     
                     // Status Display
                     StatusDisplay(
@@ -64,6 +76,8 @@ fun FrequencyApp(
                         isPlaying = uiState.isPlaying,
                         leftVolume = uiState.leftVolume,
                         rightVolume = uiState.rightVolume,
+                        selectedLeftFrequency = uiState.selectedLeftFrequency,
+                        selectedRightFrequency = uiState.selectedRightFrequency,
                         onVolumeChange = viewModel::updateVolume
                     )
                     
@@ -108,9 +122,15 @@ fun FrequencyApp(
                     FrequencyList(
                         frequencies = uiState.filteredFrequencies,
                         activeTab = uiState.activeTab,
-                        onApplyFrequency = viewModel::applyFrequency,
+                        selectedLeftFrequency = uiState.selectedLeftFrequency,
+                        selectedRightFrequency = uiState.selectedRightFrequency,
+                        onToggleFrequencyForEar = viewModel::toggleFrequencyForEar,
                         onApplyBinauralBeat = viewModel::applyBinauralBeat,
-                        onRemoveCustom = viewModel::removeCustomFrequency
+                        onRemoveCustom = viewModel::removeCustomFrequency,
+                        showDeleteConfirmation = uiState.showDeleteConfirmation,
+                        itemToDelete = uiState.itemToDelete,
+                        onConfirmDelete = viewModel::confirmDeleteCustomFrequency,
+                        onCancelDelete = viewModel::hideDeleteConfirmation
                     )
                     
                     // Footer

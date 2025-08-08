@@ -145,28 +145,13 @@ class FrequencyViewModel(
     }
     
     fun setWaveType(waveType: AudioEngine.WaveType) {
-        val wasPlaying = _uiState.value.isPlaying
-        
-        if (wasPlaying) {
-            // Stop current audio, update wave type, then restart
-            audioEngine.stopAudio()
-        }
-        
-        audioEngine.waveType = waveType
+        // Update wave type smoothly without stopping audio
+        audioEngine.updateWaveType(waveType)
         _uiState.update { it.copy(waveType = waveType) }
         
         // Save wave type preference
         viewModelScope.launch {
             dataManager.saveWaveType(waveType)
-        }
-        
-        if (wasPlaying) {
-            // Restart audio with new wave type
-            audioEngine.leftFrequency = _uiState.value.leftFreq
-            audioEngine.rightFrequency = _uiState.value.rightFreq
-            audioEngine.leftVolume = _uiState.value.leftVolume
-            audioEngine.rightVolume = _uiState.value.rightVolume
-            audioEngine.startAudio()
         }
     }
 

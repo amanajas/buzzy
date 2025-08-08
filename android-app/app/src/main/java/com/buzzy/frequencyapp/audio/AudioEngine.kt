@@ -154,6 +154,12 @@ class AudioEngine {
         }
     }
     
+    fun updateWaveType(newWaveType: WaveType) {
+        // Update wave type without stopping audio
+        // The audio generation loop will pick up the new wave type automatically
+        waveType = newWaveType
+    }
+    
     fun applyFrequency(frequency: Float, channel: Channel = Channel.BOTH) {
         updateFrequency(channel, frequency)
     }

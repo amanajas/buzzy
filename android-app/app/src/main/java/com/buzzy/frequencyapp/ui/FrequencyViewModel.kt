@@ -39,6 +39,8 @@ class FrequencyViewModel(
     private val _uiState = MutableStateFlow(FrequencyUiState())
     val uiState: StateFlow<FrequencyUiState> = _uiState.asStateFlow()
     
+    private var isUpdatingFromUI = false
+    
     init {
         loadPreferences()
         updateFilteredFrequencies()
@@ -63,26 +65,29 @@ class FrequencyViewModel(
             ) { leftFreq, rightFreq, leftVol, rightVol ->
                 SelectedData(leftFreq, rightFreq, leftVol, rightVol)
             }.collect { selected ->
-                _uiState.update { state ->
-                    state.copy(
-                        selectedLeftFrequency = selected.leftFrequency,
-                        selectedRightFrequency = selected.rightFrequency,
-                        leftFreq = when (selected.leftFrequency) {
-                            is FrequencyItem.Mono -> selected.leftFrequency.frequency.freq
-                            is FrequencyItem.Binaural -> selected.leftFrequency.frequency.left
-                            null -> state.leftFreq
-                        },
-                        rightFreq = when (selected.rightFrequency) {
-                            is FrequencyItem.Mono -> selected.rightFrequency.frequency.freq
-                            is FrequencyItem.Binaural -> selected.rightFrequency.frequency.right
-                            null -> state.rightFreq
-                        },
-                        leftVolume = selected.leftVolume,
-                        rightVolume = selected.rightVolume
-                    )
+                // Skip DataStore updates if we're currently updating from UI
+                if (!isUpdatingFromUI) {
+                    _uiState.update { state ->
+                        state.copy(
+                            selectedLeftFrequency = selected.leftFrequency,
+                            selectedRightFrequency = selected.rightFrequency,
+                            leftFreq = when (selected.leftFrequency) {
+                                is FrequencyItem.Mono -> selected.leftFrequency.frequency.freq
+                                is FrequencyItem.Binaural -> selected.leftFrequency.frequency.left
+                                null -> state.leftFreq
+                            },
+                            rightFreq = when (selected.rightFrequency) {
+                                is FrequencyItem.Mono -> selected.rightFrequency.frequency.freq
+                                is FrequencyItem.Binaural -> selected.rightFrequency.frequency.right
+                                null -> state.rightFreq
+                            },
+                            leftVolume = selected.leftVolume,
+                            rightVolume = selected.rightVolume
+                        )
+                    }
+                    audioEngine.leftVolume = selected.leftVolume
+                    audioEngine.rightVolume = selected.rightVolume
                 }
-                audioEngine.leftVolume = selected.leftVolume
-                audioEngine.rightVolume = selected.rightVolume
             }
         }
         
@@ -169,6 +174,8 @@ class FrequencyViewModel(
 
     
     fun updateVolume(channel: AudioEngine.Channel, volume: Float) {
+        isUpdatingFromUI = true
+        
         // Update the volume in the state first
         _uiState.update { state ->
             when (channel) {
@@ -185,10 +192,13 @@ class FrequencyViewModel(
         viewModelScope.launch {
             val state = _uiState.value
             dataManager.saveVolume(state.leftVolume, state.rightVolume)
+            // Reset flag after save completes
+            isUpdatingFromUI = false
         }
     }
     
     fun setFrequencyForEar(frequencyItem: FrequencyItem, channel: AudioEngine.Channel) {
+        isUpdatingFromUI = true
         val currentState = _uiState.value
         
         when (channel) {
@@ -205,12 +215,8 @@ class FrequencyViewModel(
                     )
                 }
                 
-                // Update audio engine
-                audioEngine.leftFrequency = leftFreq
-                if (currentState.isPlaying) {
-                    // Audio is already playing, keep the volume as it was
-                    audioEngine.leftVolume = currentState.leftVolume
-                }
+                // Update audio engine immediately (live frequency change)
+                audioEngine.updateFrequency(AudioEngine.Channel.LEFT, leftFreq)
             }
             
             AudioEngine.Channel.RIGHT -> {
@@ -226,12 +232,8 @@ class FrequencyViewModel(
                     )
                 }
                 
-                // Update audio engine
-                audioEngine.rightFrequency = rightFreq
-                if (currentState.isPlaying) {
-                    // Audio is already playing, keep the volume as it was
-                    audioEngine.rightVolume = currentState.rightVolume
-                }
+                // Update audio engine immediately (live frequency change)
+                audioEngine.updateFrequency(AudioEngine.Channel.RIGHT, rightFreq)
             }
             
             AudioEngine.Channel.BOTH -> {
@@ -250,12 +252,8 @@ class FrequencyViewModel(
                     )
                 }
                 
-                audioEngine.leftFrequency = freq
-                audioEngine.rightFrequency = freq
-                if (currentState.isPlaying) {
-                    audioEngine.leftVolume = currentState.leftVolume
-                    audioEngine.rightVolume = currentState.rightVolume
-                }
+                // Update both channels immediately (live frequency change)
+                audioEngine.updateFrequency(AudioEngine.Channel.BOTH, freq)
             }
         }
         
@@ -266,6 +264,8 @@ class FrequencyViewModel(
                 state.selectedLeftFrequency,
                 state.selectedRightFrequency
             )
+            // Reset flag after save completes
+            isUpdatingFromUI = false
         }
         
         // Don't auto-start audio - user must press Play button

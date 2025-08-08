@@ -170,10 +170,19 @@
         // Ad Components
         const ResponsiveAdBanner = ({ slot, style = {} }) => {
             React.useEffect(() => {
-                try {
-                    (window.adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.log('AdSense error:', e);
+                // Use requestIdleCallback for non-blocking ad loading
+                const loadAd = () => {
+                    try {
+                        (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                        console.log('AdSense error:', e);
+                    }
+                };
+
+                if (window.requestIdleCallback) {
+                    window.requestIdleCallback(loadAd, { timeout: 2000 });
+                } else {
+                    setTimeout(loadAd, 100);
                 }
             }, []);
 
@@ -195,10 +204,19 @@
 
         const SquareAd = ({ slot }) => {
             React.useEffect(() => {
-                try {
-                    (window.adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.log('AdSense error:', e);
+                // Use requestIdleCallback for non-blocking ad loading
+                const loadAd = () => {
+                    try {
+                        (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                        console.log('AdSense error:', e);
+                    }
+                };
+
+                if (window.requestIdleCallback) {
+                    window.requestIdleCallback(loadAd, { timeout: 2000 });
+                } else {
+                    setTimeout(loadAd, 100);
                 }
             }, []);
 
@@ -309,35 +327,47 @@
                     return;
                 }
 
-                const audioContext = audioContextRef.current;
-                
-                if (channel === 'left' && leftOscillatorRef.current) {
-                    // Stop current left oscillator
-                    leftOscillatorRef.current.stop();
-                    leftOscillatorRef.current.disconnect();
+                // Use requestAnimationFrame to avoid blocking main thread
+                requestAnimationFrame(() => {
+                    const audioContext = audioContextRef.current;
+                    if (!audioContext) return;
                     
-                    // Create new left oscillator with current wave type
-                    leftOscillatorRef.current = audioContext.createOscillator();
-                    leftOscillatorRef.current.type = waveType;
-                    leftOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
-                    
-                    // Reconnect
-                    leftOscillatorRef.current.connect(leftGainRef.current);
-                    leftOscillatorRef.current.start();
-                } else if (channel === 'right' && rightOscillatorRef.current) {
-                    // Stop current right oscillator
-                    rightOscillatorRef.current.stop();
-                    rightOscillatorRef.current.disconnect();
-                    
-                    // Create new right oscillator with current wave type
-                    rightOscillatorRef.current = audioContext.createOscillator();
-                    rightOscillatorRef.current.type = waveType;
-                    rightOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
-                    
-                    // Reconnect
-                    rightOscillatorRef.current.connect(rightGainRef.current);
-                    rightOscillatorRef.current.start();
-                }
+                    if (channel === 'left' && leftOscillatorRef.current) {
+                        try {
+                            // Stop current left oscillator
+                            leftOscillatorRef.current.stop();
+                            leftOscillatorRef.current.disconnect();
+                            
+                            // Create new left oscillator with current wave type
+                            leftOscillatorRef.current = audioContext.createOscillator();
+                            leftOscillatorRef.current.type = waveType;
+                            leftOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                            
+                            // Reconnect
+                            leftOscillatorRef.current.connect(leftGainRef.current);
+                            leftOscillatorRef.current.start();
+                        } catch (e) {
+                            console.warn('Left oscillator update error:', e);
+                        }
+                    } else if (channel === 'right' && rightOscillatorRef.current) {
+                        try {
+                            // Stop current right oscillator
+                            rightOscillatorRef.current.stop();
+                            rightOscillatorRef.current.disconnect();
+                            
+                            // Create new right oscillator with current wave type
+                            rightOscillatorRef.current = audioContext.createOscillator();
+                            rightOscillatorRef.current.type = waveType;
+                            rightOscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                            
+                            // Reconnect
+                            rightOscillatorRef.current.connect(rightGainRef.current);
+                            rightOscillatorRef.current.start();
+                        } catch (e) {
+                            console.warn('Right oscillator update error:', e);
+                        }
+                    }
+                });
             }, [waveType]);
 
             const updateVolume = useCallback((channel, volume) => {
@@ -355,18 +385,21 @@
             }, []);
 
             const applyFrequency = useCallback((freq, channel = 'both') => {
-                if (channel === 'both' || channel === 'left') {
-                    setLeftFreq(freq);
-                    if (audioContextRef.current && leftOscillatorRef.current) {
-                        updateFrequency('left', freq);
+                // Use setTimeout to debounce rapid frequency changes
+                setTimeout(() => {
+                    if (channel === 'both' || channel === 'left') {
+                        setLeftFreq(freq);
+                        if (audioContextRef.current && leftOscillatorRef.current) {
+                            updateFrequency('left', freq);
+                        }
                     }
-                }
-                if (channel === 'both' || channel === 'right') {
-                    setRightFreq(freq);
-                    if (audioContextRef.current && rightOscillatorRef.current) {
-                        updateFrequency('right', freq);
+                    if (channel === 'both' || channel === 'right') {
+                        setRightFreq(freq);
+                        if (audioContextRef.current && rightOscillatorRef.current) {
+                            updateFrequency('right', freq);
+                        }
                     }
-                }
+                }, 0);
             }, [updateFrequency]);
 
             const applyBinauralBeat = useCallback((leftFreqValue, rightFreqValue) => {
@@ -383,34 +416,41 @@
             const updateWaveType = useCallback((newWaveType) => {
                 setWaveType(newWaveType);
                 
-                // Recreate oscillators with new wave type if playing
-                if (audioContextRef.current && (leftOscillatorRef.current || rightOscillatorRef.current)) {
-                    const audioContext = audioContextRef.current;
-                    
-                    if (leftOscillatorRef.current) {
-                        const currentLeftFreq = leftFreq;
-                        leftOscillatorRef.current.stop();
-                        leftOscillatorRef.current.disconnect();
+                // Use requestAnimationFrame to avoid blocking main thread
+                requestAnimationFrame(() => {
+                    // Recreate oscillators with new wave type if playing
+                    if (audioContextRef.current && (leftOscillatorRef.current || rightOscillatorRef.current)) {
+                        const audioContext = audioContextRef.current;
                         
-                        leftOscillatorRef.current = audioContext.createOscillator();
-                        leftOscillatorRef.current.type = newWaveType;
-                        leftOscillatorRef.current.frequency.setValueAtTime(currentLeftFreq, audioContext.currentTime);
-                        leftOscillatorRef.current.connect(leftGainRef.current);
-                        leftOscillatorRef.current.start();
+                        try {
+                            if (leftOscillatorRef.current) {
+                                const currentLeftFreq = leftFreq;
+                                leftOscillatorRef.current.stop();
+                                leftOscillatorRef.current.disconnect();
+                                
+                                leftOscillatorRef.current = audioContext.createOscillator();
+                                leftOscillatorRef.current.type = newWaveType;
+                                leftOscillatorRef.current.frequency.setValueAtTime(currentLeftFreq, audioContext.currentTime);
+                                leftOscillatorRef.current.connect(leftGainRef.current);
+                                leftOscillatorRef.current.start();
+                            }
+                            
+                            if (rightOscillatorRef.current) {
+                                const currentRightFreq = rightFreq;
+                                rightOscillatorRef.current.stop();
+                                rightOscillatorRef.current.disconnect();
+                                
+                                rightOscillatorRef.current = audioContext.createOscillator();
+                                rightOscillatorRef.current.type = newWaveType;
+                                rightOscillatorRef.current.frequency.setValueAtTime(currentRightFreq, audioContext.currentTime);
+                                rightOscillatorRef.current.connect(rightGainRef.current);
+                                rightOscillatorRef.current.start();
+                            }
+                        } catch (e) {
+                            console.warn('Wave type update error:', e);
+                        }
                     }
-                    
-                    if (rightOscillatorRef.current) {
-                        const currentRightFreq = rightFreq;
-                        rightOscillatorRef.current.stop();
-                        rightOscillatorRef.current.disconnect();
-                        
-                        rightOscillatorRef.current = audioContext.createOscillator();
-                        rightOscillatorRef.current.type = newWaveType;
-                        rightOscillatorRef.current.frequency.setValueAtTime(currentRightFreq, audioContext.currentTime);
-                        rightOscillatorRef.current.connect(rightGainRef.current);
-                        rightOscillatorRef.current.start();
-                    }
-                }
+                });
             }, [leftFreq, rightFreq]);
 
             return {
@@ -679,21 +719,43 @@
 
                         {/* Category Tabs */}
                         <div className="p-4 border-b lg:p-6">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2">
+                            {/* Mobile/Tablet Grid Layout */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:hidden">
                                 {Object.keys(fullFrequencyDatabase).map((category) => {
                                     const Icon = tabIcons[category];
                                     return (
                                         <button
                                             key={category}
                                             onClick={() => setActiveTab(category)}
-                                            className={`flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-3 px-2 sm:px-3 rounded-xl border-2 transition-all active:scale-95 min-h-[44px] ${
+                                            className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl border-2 transition-all active:scale-95 min-h-[44px] ${
                                                 activeTab === category
                                                     ? 'bg-purple-500 text-white border-purple-500 shadow-md'
                                                     : 'bg-white text-gray-700 border-gray-300'
                                             }`}
                                         >
                                             <Icon className="w-4 h-4 flex-shrink-0" />
-                                            <span className="text-xs sm:text-sm font-medium text-center leading-tight truncate">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                            <span className="text-sm font-medium text-center">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            
+                            {/* Desktop Vertical List Layout */}
+                            <div className="hidden lg:flex lg:flex-col gap-2">
+                                {Object.keys(fullFrequencyDatabase).map((category) => {
+                                    const Icon = tabIcons[category];
+                                    return (
+                                        <button
+                                            key={category}
+                                            onClick={() => setActiveTab(category)}
+                                            className={`flex items-center gap-3 py-3 px-4 rounded-xl border-2 transition-all hover:scale-[1.02] active:scale-95 text-left ${
+                                                activeTab === category
+                                                    ? 'bg-purple-500 text-white border-purple-500 shadow-md'
+                                                    : 'bg-white text-gray-700 border-gray-300 hover:border-purple-300'
+                                            }`}
+                                        >
+                                            <Icon className="w-5 h-5 flex-shrink-0" />
+                                            <span className="text-base font-medium">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                                         </button>
                                     );
                                 })}

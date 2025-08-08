@@ -518,13 +518,26 @@
             };
 
             const filteredFrequencies = (category) => {
-                const frequencies = fullFrequencyDatabase[category];
-                if (!searchTerm) return frequencies;
-                
-                return frequencies.filter(item =>
-                    item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    item.description.toLowerCase().includes(searchTerm.toLowerCase())
-                );
+                // If there's a search term, search across ALL frequencies
+                if (searchTerm) {
+                    const allFrequencies = [];
+                    Object.entries(fullFrequencyDatabase).forEach(([cat, freqs]) => {
+                        freqs.forEach(item => {
+                            if (item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                item.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                // Add category info to help users understand where it comes from
+                                allFrequencies.push({
+                                    ...item,
+                                    category: cat
+                                });
+                            }
+                        });
+                    });
+                    return allFrequencies;
+                } else {
+                    // No search term, return frequencies for the current category
+                    return fullFrequencyDatabase[category];
+                }
             };
 
             const tabIcons = {
@@ -768,11 +781,17 @@
 
                         {/* Frequency List */}
                         <div className="max-h-96 lg:flex-1 lg:max-h-none overflow-y-auto">
-                            {activeTab === 'custom' && customFrequencies.length === 0 ? (
+                            {!searchTerm && activeTab === 'custom' && customFrequencies.length === 0 ? (
                                 <div className="p-8 text-center text-gray-500">
                                     <Settings className="w-12 h-12 mx-auto mb-3 text-gray-400" />
                                     <p className="mb-2">No custom frequencies yet</p>
                                     <p className="text-sm">Use "Quick Apply" to test frequencies!</p>
+                                </div>
+                            ) : filteredFrequencies(activeTab).length === 0 && searchTerm ? (
+                                <div className="p-8 text-center text-gray-500">
+                                    <Search className="w-12 h-12 mx-auto mb-3 text-gray-400" />
+                                    <p className="mb-2">No frequencies found</p>
+                                    <p className="text-sm">Try a different search term</p>
                                 </div>
                             ) : (
                                 <div className="p-4">
@@ -780,9 +799,16 @@
                                         <div key={index} className="mb-3 p-4 border border-gray-200 rounded-2xl bg-white">
                                             <div className="flex justify-between items-start mb-2">
                                                 <div className="flex-1 min-w-0">
-                                                    <h4 className="font-semibold text-gray-800 text-sm truncate">{item.name}</h4>
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <h4 className="font-semibold text-gray-800 text-sm truncate">{item.name}</h4>
+                                                        {searchTerm && item.category && (
+                                                            <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                                                                {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                                                            </span>
+                                                        )}
+                                                    </div>
                                                     <p className="text-xs text-gray-600 mt-1">{item.description}</p>
-                                                    {((activeTab === 'binaural') || (activeTab === 'custom' && item.left && item.right)) && (
+                                                    {((item.category === 'binaural') || (item.category === 'custom' && item.left && item.right) || (!searchTerm && activeTab === 'binaural') || (!searchTerm && activeTab === 'custom' && item.left && item.right)) && (
                                                         <p className="text-xs text-purple-600 mt-1">
                                                             L:{item.left}Hz R:{item.right}Hz Beat:{Math.abs(item.right - item.left)}Hz
                                                         </p>
@@ -791,7 +817,7 @@
                                             </div>
                                             
                                             <div className="flex gap-1">
-                                                {(activeTab === 'binaural' || (activeTab === 'custom' && item.left && item.right)) ? (
+                                                {((item.category === 'binaural') || (item.category === 'custom' && item.left && item.right) || (!searchTerm && activeTab === 'binaural') || (!searchTerm && activeTab === 'custom' && item.left && item.right)) ? (
                                                     <button
                                                         onClick={() => audioEngine.applyBinauralBeat(item.left, item.right)}
                                                         className="flex-1 py-2 px-3 text-xs bg-purple-500 hover:bg-purple-600 text-white rounded-xl transition-all active:scale-95"

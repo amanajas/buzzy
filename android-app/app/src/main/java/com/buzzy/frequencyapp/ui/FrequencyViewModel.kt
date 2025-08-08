@@ -99,16 +99,19 @@ class FrequencyViewModel(
             ) { tab, lang ->
                 Pair(tab, lang)
             }.collect { (activeTab, language) ->
-                val currentTab = _uiState.value.activeTab
-                _uiState.update { state ->
-                    state.copy(
-                        activeTab = activeTab,
-                        currentLanguage = language
-                    )
-                }
-                // Only update filtered frequencies if activeTab changed
-                if (currentTab != activeTab) {
-                    updateFilteredFrequencies()
+                // Skip DataStore updates if we're currently updating from UI
+                if (!isUpdatingFromUI) {
+                    val currentTab = _uiState.value.activeTab
+                    _uiState.update { state ->
+                        state.copy(
+                            activeTab = activeTab,
+                            currentLanguage = language
+                        )
+                    }
+                    // Only update filtered frequencies if activeTab changed
+                    if (currentTab != activeTab) {
+                        updateFilteredFrequencies()
+                    }
                 }
             }
         }
@@ -373,14 +376,20 @@ class FrequencyViewModel(
     
     
     fun setActiveTab(tab: String) {
+        println("DEBUG: setActiveTab called with $tab, isPlaying=${_uiState.value.isPlaying}")
+        
+        isUpdatingFromUI = true
         _uiState.update { it.copy(activeTab = tab) }
         
         // Save active tab preference
         viewModelScope.launch {
             dataManager.saveActiveTab(tab)
+            // Reset flag after save completes
+            isUpdatingFromUI = false
         }
         
         updateFilteredFrequencies()
+        println("DEBUG: Active tab updated, frequencies filtered, selections should be preserved")
     }
     
     fun setSearchTerm(term: String) {

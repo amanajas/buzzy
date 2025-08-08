@@ -86,24 +86,36 @@ class FrequencyViewModel(
             }
         }
         
-        // Load other preferences
+        // Load active tab and language preferences
         viewModelScope.launch {
             combine(
-                dataManager.getWaveType(),
                 dataManager.getActiveTab(),
                 dataManager.getLanguage()
-            ) { wave, tab, lang ->
-                OtherPreferences(wave, tab, lang)
-            }.collect { prefs ->
+            ) { tab, lang ->
+                Pair(tab, lang)
+            }.collect { (activeTab, language) ->
+                val currentTab = _uiState.value.activeTab
                 _uiState.update { state ->
                     state.copy(
-                        waveType = prefs.waveType,
-                        activeTab = prefs.activeTab,
-                        currentLanguage = prefs.language
+                        activeTab = activeTab,
+                        currentLanguage = language
                     )
                 }
-                audioEngine.waveType = prefs.waveType
-                updateFilteredFrequencies()
+                // Only update filtered frequencies if activeTab changed
+                if (currentTab != activeTab) {
+                    updateFilteredFrequencies()
+                }
+            }
+        }
+        
+        // Load wave type preference only on startup (not during runtime changes)
+        viewModelScope.launch {
+            dataManager.getWaveType().collect { waveType ->
+                // Only update if this is the initial load (current wave type is default)
+                if (_uiState.value.waveType == AudioEngine.WaveType.SINE && waveType != AudioEngine.WaveType.SINE) {
+                    audioEngine.waveType = waveType
+                    _uiState.update { it.copy(waveType = waveType) }
+                }
             }
         }
     }
@@ -149,7 +161,7 @@ class FrequencyViewModel(
         audioEngine.updateWaveType(waveType)
         _uiState.update { it.copy(waveType = waveType) }
         
-        // Save wave type preference
+        // Save wave type preference asynchronously to avoid triggering flow
         viewModelScope.launch {
             dataManager.saveWaveType(waveType)
         }

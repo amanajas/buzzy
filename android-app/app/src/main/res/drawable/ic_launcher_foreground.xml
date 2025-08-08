@@ -5,38 +5,49 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
     
-    <!-- Background circle -->
-    <path
-        android:fillColor="#667EEA"
-        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
-    
-    <!-- Sound wave icon -->
+    <!-- Center point for all elements -->
     <group android:translateX="54" android:translateY="54">
-        <!-- Center line -->
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M-2,-15L2,-15L2,15L-2,15Z" />
         
-        <!-- Left waves -->
+        <!-- Concentric sound ring circles -->
+        <!-- Outer ring -->
         <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M-8,-12L-6,-12L-6,12L-8,12Z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M-14,-8L-12,-8L-12,8L-14,8Z" />
-        <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M-20,-5L-18,-5L-18,5L-20,5Z" />
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="3"
+            android:strokeAlpha="0.9"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M0,0m-32,0a32,32 0,1 1,64 0a32,32 0,1 1,-64 0" />
         
-        <!-- Right waves -->
+        <!-- Second ring -->
         <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M6,-12L8,-12L8,12L6,12Z" />
+            android:strokeColor="#F093FB"
+            android:strokeWidth="2.5"
+            android:strokeAlpha="0.7"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M0,0m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0" />
+        
+        <!-- Third ring -->
         <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M12,-8L14,-8L14,8L12,8Z" />
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:strokeAlpha="0.6"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M0,0m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0" />
+        
+        <!-- Inner ring -->
         <path
-            android:fillColor="#FFFFFF"
-            android:pathData="M18,-5L20,-5L20,5L18,5Z" />
+            android:strokeColor="#F093FB"
+            android:strokeWidth="2"
+            android:strokeAlpha="0.8"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M0,0m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0" />
+        
+        <!-- Letter B in center -->
+        <group>
+            <!-- B letter path -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M-8,-12L-8,12L-2,12Q4,12 4,6Q4,2 0,0Q4,-2 4,-6Q4,-12 -2,-12L-8,-12ZM-3,-7L-1,-7Q1,-7 1,-5Q1,-3 -1,-3L-3,-3L-3,-7ZM-3,2L0,2Q2,2 2,4Q2,6 0,6L-3,6L-3,2Z" />
+        </group>
+        
     </group>
 </vector>

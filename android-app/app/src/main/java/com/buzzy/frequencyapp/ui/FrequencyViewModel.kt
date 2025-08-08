@@ -116,8 +116,10 @@ class FrequencyViewModel(
         // Load wave type preference only on startup (not during runtime changes)
         viewModelScope.launch {
             dataManager.getWaveType().collect { waveType ->
-                // Only update if this is the initial load (current wave type is default)
-                if (_uiState.value.waveType == AudioEngine.WaveType.SINE && waveType != AudioEngine.WaveType.SINE) {
+                // Only update if this is the initial load and we're not updating from UI
+                if (!isUpdatingFromUI && 
+                    _uiState.value.waveType == AudioEngine.WaveType.SINE && 
+                    waveType != AudioEngine.WaveType.SINE) {
                     audioEngine.waveType = waveType
                     _uiState.update { it.copy(waveType = waveType) }
                 }
@@ -162,14 +164,16 @@ class FrequencyViewModel(
     }
     
     fun setWaveType(waveType: AudioEngine.WaveType) {
+        println("DEBUG: setWaveType called with $waveType, isPlaying=${_uiState.value.isPlaying}")
+        
         // Update wave type smoothly without stopping audio
         audioEngine.updateWaveType(waveType)
         _uiState.update { it.copy(waveType = waveType) }
         
-        // Save wave type preference asynchronously to avoid triggering flow
-        viewModelScope.launch {
-            dataManager.saveWaveType(waveType)
-        }
+        println("DEBUG: Wave type updated, state should preserve selections")
+        
+        // DON'T save to DataStore during runtime to avoid flow interference
+        // Wave type will be saved when app is paused/destroyed
     }
 
     
@@ -493,6 +497,11 @@ class FrequencyViewModel(
     
     override fun onCleared() {
         super.onCleared()
+        // Save current wave type before destroying ViewModel
+        val currentWaveType = _uiState.value.waveType
+        viewModelScope.launch {
+            dataManager.saveWaveType(currentWaveType)
+        }
         audioEngine.release()
     }
 }

@@ -8,11 +8,20 @@
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "!/ads.txt",
         "destination": "/index.html"
       }
     ],
     "headers": [
+      {
+        "source": "ads.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain"
+          }
+        ]
+      },
       {
         "source": "**/*.@(js|jsx)",
         "headers": [

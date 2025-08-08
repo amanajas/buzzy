@@ -1,9 +1,9 @@
 <resources>
     <!-- App Name -->
-    <string name="app_name">Frequency App</string>
+    <string name="app_name">Buzzy</string>
     
     <!-- Header -->
-    <string name="app_title">Frequency Generator</string>
+    <string name="app_title">Buzzy</string>
     <string name="headphone_warning">🎧 Use headphones for the best experience</string>
     
     <!-- Status Display -->

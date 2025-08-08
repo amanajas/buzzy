@@ -1,0 +1,1511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.2.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.2.0)" variant="all" version="8.2.0">
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        errorLine1="        targetSdk 34"
+        errorLine2="        ~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="14"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="TestManifestGradleConfiguration"
+        message="Please use debugImplementation."
+        errorLine1="    androidTestImplementation &apos;androidx.compose.ui:ui-test-manifest&apos;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="101"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.16.0"
+        errorLine1="    implementation &apos;androidx.core:core-ktx:1.12.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="60"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.9.2"
+        errorLine1="    implementation &apos;androidx.lifecycle:lifecycle-runtime-ktx:2.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="61"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.10.1"
+        errorLine1="    implementation &apos;androidx.activity:activity-compose:1.8.2&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="62"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose:compose-bom than 2023.10.01 is available: 2025.07.00"
+        errorLine1="    implementation platform(&apos;androidx.compose:compose-bom:2023.10.01&apos;)"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="63"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-compose than 2.7.5 is available: 2.9.3"
+        errorLine1="    implementation &quot;androidx.navigation:navigation-compose:2.7.5&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="71"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.9.2"
+        errorLine1="    implementation &quot;androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="74"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.datastore:datastore-preferences than 1.0.0 is available: 1.1.7"
+        errorLine1="    implementation &quot;androidx.datastore:datastore-preferences:1.0.0&quot;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="82"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0"
+        errorLine1="    androidTestImplementation &apos;androidx.test.ext:junit:1.1.5&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="95"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0"
+        errorLine1="    androidTestImplementation &apos;androidx.test.espresso:espresso-core:3.5.1&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="96"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test:runner than 1.5.2 is available: 1.7.0"
+        errorLine1="    androidTestImplementation &apos;androidx.test:runner:1.5.2&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="97"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test:rules than 1.5.0 is available: 1.7.0"
+        errorLine1="    androidTestImplementation &apos;androidx.test:rules:1.5.0&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="98"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose:compose-bom than 2023.10.01 is available: 2025.07.00"
+        errorLine1="    androidTestImplementation platform(&apos;androidx.compose:compose-bom:2023.10.01&apos;)"
+        errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="99"
+            column="40"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;enter_name&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;enter_name&quot;>Enter name&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;enter_description&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;enter_description&quot;>Enter description&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;enter_frequency&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;enter_frequency&quot;>Enter frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;no_custom_frequencies&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;no_custom_frequencies&quot;>No custom frequencies yet&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="64"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;no_frequencies_found&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;no_frequencies_found&quot;>No frequencies found&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;left_ear_button&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;left_ear_button&quot;>🎧 Left Ear&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="66"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;right_ear_button&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;right_ear_button&quot;>🎧 Right Ear&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;both_ears&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;both_ears&quot;>🎧 Both Ears&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;binaural_beat_uses_both&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;binaural_beat_uses_both&quot;>Binaural Beat - Uses Both Ears&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;play_binaural_beat&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;play_binaural_beat&quot;>Play Binaural Beat&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="70"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;usage_tips&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;usage_tips&quot;>💡 Tips: Use headphones for binaural beats. Start with low volume.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="78"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;safety_warning&quot; is not translated in &quot;de&quot; (German) or &quot;pt&quot; (Portuguese)"
+        errorLine1="    &lt;string name=&quot;safety_warning&quot;>⚠️ Keep volume at safe levels to protect your hearing.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="79"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;left&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;left&quot;>Left&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="87"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;right&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;right&quot;>Right&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="88"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;both&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;both&quot;>Both&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="89"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;frequency_name_hint&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;frequency_name_hint&quot;>Enter name&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="92"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;description_hint&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;description_hint&quot;>Enter description (optional)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;show_form&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;show_form&quot;>+ Custom Frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="94"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;hide_form&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;hide_form&quot;>Hide Form&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="95"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;delete_confirmation_title&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;delete_confirmation_title&quot;>Confirm Delete&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="98"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;help_binaural_beats&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;help_binaural_beats&quot;>Binaural Beats: Different frequencies in each ear for brainwave synchronization&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="106"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;help_therapeutic_frequencies&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;help_therapeutic_frequencies&quot;>Therapeutic Frequencies: Traditional healing frequencies and Solfeggio tones&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="107"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;help_volume_safety&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;help_volume_safety&quot;>Safety: Volume limited to 30%% to protect your hearing&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="108"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;help_wave_types&quot; is not translated in &quot;ar&quot; (Arabic), &quot;hi&quot; (Hindi), &quot;ko&quot; (Korean), &quot;ja&quot; (Japanese), &quot;fr&quot; (French), &quot;es&quot; (Spanish), &quot;zh&quot; (Chinese)"
+        errorLine1="    &lt;string name=&quot;help_wave_types&quot;>Wave Types: Different waveforms produce different harmonic content&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="109"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.left_volume` appears to be unused"
+        errorLine1="    &lt;string name=&quot;left_volume&quot;>Left Volume&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="17"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.right_volume` appears to be unused"
+        errorLine1="    &lt;string name=&quot;right_volume&quot;>Right Volume&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="18"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.sine` appears to be unused"
+        errorLine1="    &lt;string name=&quot;sine&quot;>Sine&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="25"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.square` appears to be unused"
+        errorLine1="    &lt;string name=&quot;square&quot;>Square&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="26"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.sawtooth` appears to be unused"
+        errorLine1="    &lt;string name=&quot;sawtooth&quot;>Sawtooth&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.triangle` appears to be unused"
+        errorLine1="    &lt;string name=&quot;triangle&quot;>Triangle&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="28"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.quick_frequency` appears to be unused"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Quick Frequency (20-20000 Hz)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="29"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.search_frequencies` appears to be unused"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Search frequencies...&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.custom` appears to be unused"
+        errorLine1="    &lt;string name=&quot;custom&quot;>Custom&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="44"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.therapeutic` appears to be unused"
+        errorLine1="    &lt;string name=&quot;therapeutic&quot;>Therapeutic&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.musical` appears to be unused"
+        errorLine1="    &lt;string name=&quot;musical&quot;>Musical&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="46"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.binaural` appears to be unused"
+        errorLine1="    &lt;string name=&quot;binaural&quot;>Binaural&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="47"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.brainwaves` appears to be unused"
+        errorLine1="    &lt;string name=&quot;brainwaves&quot;>Brainwaves&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="48"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.add_custom_frequency` appears to be unused"
+        errorLine1="    &lt;string name=&quot;add_custom_frequency&quot;>Add Custom Frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="51"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.frequency_name` appears to be unused"
+        errorLine1="    &lt;string name=&quot;frequency_name&quot;>Frequency Name&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="52"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.enter_name` appears to be unused"
+        errorLine1="    &lt;string name=&quot;enter_name&quot;>Enter name&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;description&quot;>Description&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.enter_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;enter_description&quot;>Enter description&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.left_frequency_hz` appears to be unused"
+        errorLine1="    &lt;string name=&quot;left_frequency_hz&quot;>Left Frequency (Hz)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.right_frequency_hz` appears to be unused"
+        errorLine1="    &lt;string name=&quot;right_frequency_hz&quot;>Right Frequency (Hz)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.frequency_hz` appears to be unused"
+        errorLine1="    &lt;string name=&quot;frequency_hz&quot;>Frequency (Hz)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="58"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.enter_frequency` appears to be unused"
+        errorLine1="    &lt;string name=&quot;enter_frequency&quot;>Enter frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.save` appears to be unused"
+        errorLine1="    &lt;string name=&quot;save&quot;>Save&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="60"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.no_custom_frequencies` appears to be unused"
+        errorLine1="    &lt;string name=&quot;no_custom_frequencies&quot;>No custom frequencies yet&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="64"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.no_frequencies_found` appears to be unused"
+        errorLine1="    &lt;string name=&quot;no_frequencies_found&quot;>No frequencies found&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.left_ear_button` appears to be unused"
+        errorLine1="    &lt;string name=&quot;left_ear_button&quot;>🎧 Left Ear&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="66"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.right_ear_button` appears to be unused"
+        errorLine1="    &lt;string name=&quot;right_ear_button&quot;>🎧 Right Ear&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.both_ears` appears to be unused"
+        errorLine1="    &lt;string name=&quot;both_ears&quot;>🎧 Both Ears&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.binaural_beat_uses_both` appears to be unused"
+        errorLine1="    &lt;string name=&quot;binaural_beat_uses_both&quot;>Binaural Beat - Uses Both Ears&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.play_binaural_beat` appears to be unused"
+        errorLine1="    &lt;string name=&quot;play_binaural_beat&quot;>Play Binaural Beat&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="70"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.usage_tips` appears to be unused"
+        errorLine1="    &lt;string name=&quot;usage_tips&quot;>💡 Tips: Use headphones for binaural beats. Start with low volume.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="78"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.safety_warning` appears to be unused"
+        errorLine1="    &lt;string name=&quot;safety_warning&quot;>⚠️ Keep volume at safe levels to protect your hearing.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="79"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.language_changed` appears to be unused"
+        errorLine1="    &lt;string name=&quot;language_changed&quot;>Language changed. Restart app to apply.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="84"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.left` appears to be unused"
+        errorLine1="    &lt;string name=&quot;left&quot;>Left&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="87"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.right` appears to be unused"
+        errorLine1="    &lt;string name=&quot;right&quot;>Right&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="88"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.both` appears to be unused"
+        errorLine1="    &lt;string name=&quot;both&quot;>Both&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="89"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.frequency_name_hint` appears to be unused"
+        errorLine1="    &lt;string name=&quot;frequency_name_hint&quot;>Enter name&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="92"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.description_hint` appears to be unused"
+        errorLine1="    &lt;string name=&quot;description_hint&quot;>Enter description (optional)&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.show_form` appears to be unused"
+        errorLine1="    &lt;string name=&quot;show_form&quot;>+ Custom Frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="94"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hide_form` appears to be unused"
+        errorLine1="    &lt;string name=&quot;hide_form&quot;>Hide Form&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="95"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.delete_confirmation_title` appears to be unused"
+        errorLine1="    &lt;string name=&quot;delete_confirmation_title&quot;>Confirm Delete&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="98"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.invalid_frequency` appears to be unused"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Invalid frequency. Please enter a value between 20-20000 Hz.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="101"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.empty_name` appears to be unused"
+        errorLine1="    &lt;string name=&quot;empty_name&quot;>Please enter a name for the frequency.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="102"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.frequency_exists` appears to be unused"
+        errorLine1="    &lt;string name=&quot;frequency_exists&quot;>A frequency with this name already exists.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="103"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.help_binaural_beats` appears to be unused"
+        errorLine1="    &lt;string name=&quot;help_binaural_beats&quot;>Binaural Beats: Different frequencies in each ear for brainwave synchronization&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="106"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.help_therapeutic_frequencies` appears to be unused"
+        errorLine1="    &lt;string name=&quot;help_therapeutic_frequencies&quot;>Therapeutic Frequencies: Traditional healing frequencies and Solfeggio tones&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="107"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.help_volume_safety` appears to be unused"
+        errorLine1="    &lt;string name=&quot;help_volume_safety&quot;>Safety: Volume limited to 30%% to protect your hearing&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="108"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.help_wave_types` appears to be unused"
+        errorLine1="    &lt;string name=&quot;help_wave_types&quot;>Wave Types: Different waveforms produce different harmonic content&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="109"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.delete_frequency` appears to be unused"
+        errorLine1="    &lt;string name=&quot;delete_frequency&quot;>Delete frequency&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="112"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.play_pause` appears to be unused"
+        errorLine1="    &lt;string name=&quot;play_pause&quot;>Play or pause audio&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="113"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.volume_control` appears to be unused"
+        errorLine1="    &lt;string name=&quot;volume_control&quot;>Volume control&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="114"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.wave_type_selection` appears to be unused"
+        errorLine1="    &lt;string name=&quot;wave_type_selection&quot;>Wave type selection&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="115"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.frequency_selection` appears to be unused"
+        errorLine1="    &lt;string name=&quot;frequency_selection&quot;>Frequency selection&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="116"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>التردد السريع (20-20000 هرتز)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Schnelle Frequenz (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-de/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Frecuencia Rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Fréquence Rapide (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-fr/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>त्वरित फ्रीक्वेंसी (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hi/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>クイック周波数 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ja/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>빠른 주파수 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ko/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Frequência Rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt-rBR/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Frequência Rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>快速频率 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-zh-rCN/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency&quot;>Quick Frequency (20-20000 Hz)&lt;/string>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="29"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Schnelle Frequenz (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-de/strings.xml"
+            line="30"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Frequência Rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt-rBR/strings.xml"
+            line="30"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Frequência Rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt/strings.xml"
+            line="30"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Quick Frequency (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="30"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>تردد غير صالح. يرجى إدخال قيمة بين 20-20000 هرتز.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Frecuencia inválida. Por favor ingresa un valor entre 20-20000 Hz.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Fréquence invalide. Veuillez entrer une valeur entre 20-20000 Hz.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-fr/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>अमान्य फ्रीक्वेंसी। कृपया 20-20000 Hz के बीच का मान दर्ज करें।&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hi/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>無効な周波数です。20-20000 Hzの範囲で入力してください。&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ja/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>유효하지 않은 주파수입니다. 20-20000 Hz 범위의 값을 입력하세요.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ko/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>无效频率。请输入20-20000 Hz范围内的值。&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-zh-rCN/strings.xml"
+            line="80"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Ungültige Frequenz. Bitte geben Sie einen Wert zwischen 20-20000 Hz ein.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-de/strings.xml"
+            line="81"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Frequência inválida. Por favor, digite um valor entre 20-20000 Hz.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt-rBR/strings.xml"
+            line="81"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Frequência inválida. Por favor, insira um valor entre 20-20000 Hz.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt/strings.xml"
+            line="81"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>تردد سريع (20-20000 هرتز)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Frecuencia rápida (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>Fréquence rapide (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-fr/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>त्वरित फ्रीक्वेंसी (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hi/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>クイック周波数 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ja/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>빠른 주파수 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ko/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;quick_frequency_range&quot;>快速频率 (20-20000 Hz)&lt;/string>"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-zh-rCN/strings.xml"
+            line="89"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        errorLine1="    &lt;string name=&quot;invalid_frequency&quot;>Invalid frequency. Please enter a value between 20-20000 Hz.&lt;/string>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="101"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>البحث عن ترددات...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Buscar frecuencias...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Rechercher des fréquences...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-fr/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>फ्रीक्वेंसी खोजें...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hi/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>周波数を検索...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~">
+        <location
+            file="src/main/res/values-ja/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>주파수 검색...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~">
+        <location
+            file="src/main/res/values-ko/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>搜索频率...&lt;/string>"
+        errorLine2="                                      ~~~~~~~">
+        <location
+            file="src/main/res/values-zh-rCN/strings.xml"
+            line="34"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Frequenzen suchen...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-de/strings.xml"
+            line="41"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Buscar frequências...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt-rBR/strings.xml"
+            line="41"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Pesquisar frequências...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt/strings.xml"
+            line="41"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="TypographyEllipsis"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?"
+        errorLine1="    &lt;string name=&quot;search_frequencies&quot;>Search frequencies...&lt;/string>"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="41"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+</issues>

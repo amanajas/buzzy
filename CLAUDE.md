@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React-based frequency generator and binaural beats application called "Frequency App". The application is a single-page mobile-optimized web app that generates audio frequencies for therapeutic, musical, and brainwave entrainment purposes.
+This is a React-based frequency generator and binaural beats application called "Buzzy". The application is a single-page mobile-optimized web app that generates audio frequencies for therapeutic, musical, and brainwave entrainment purposes.
 
 ## Architecture
 

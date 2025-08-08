@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buzzy</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1471423857815501" 
+            crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-1471423857815501">
+    
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,6 +83,31 @@
             border-radius: 4px;
             border: none;
         }
+
+        /* Ad Styles */
+        .ad-container {
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 8px;
+            margin: 16px 0;
+            position: relative;
+        }
+        
+        .ad-container::before {
+            content: 'Advertisement';
+            position: absolute;
+            top: 2px;
+            right: 8px;
+            font-size: 10px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .adsbygoogle {
+            border-radius: 8px;
+            overflow: hidden;
+        }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -99,6 +130,55 @@
         const Plus = () => React.createElement('span', null, '➕');
         const X = () => React.createElement('span', null, '❌');
         const Trash2 = () => React.createElement('span', null, '🗑️');
+
+        // Ad Components
+        const ResponsiveAdBanner = ({ slot, style = {} }) => {
+            React.useEffect(() => {
+                try {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.log('AdSense error:', e);
+                }
+            }, []);
+
+            return React.createElement('div', {
+                className: 'ad-container my-4 flex justify-center',
+                style: { minHeight: '120px', ...style }
+            }, [
+                React.createElement('ins', {
+                    key: 'ad',
+                    className: 'adsbygoogle',
+                    style: { display: 'block' },
+                    'data-ad-client': 'ca-pub-1471423857815501',
+                    'data-ad-slot': slot || '1234567890',
+                    'data-ad-format': 'auto',
+                    'data-full-width-responsive': 'true'
+                })
+            ]);
+        };
+
+        const SquareAd = ({ slot }) => {
+            React.useEffect(() => {
+                try {
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.log('AdSense error:', e);
+                }
+            }, []);
+
+            return React.createElement('div', {
+                className: 'ad-container my-4 flex justify-center',
+                style: { minHeight: '300px' }
+            }, [
+                React.createElement('ins', {
+                    key: 'ad',
+                    className: 'adsbygoogle',
+                    style: { display: 'inline-block', width: '300px', height: '250px' },
+                    'data-ad-client': 'ca-pub-1471423857815501',
+                    'data-ad-slot': slot || '0987654321'
+                })
+            ]);
+        };
         
         // Inline the entire app to avoid module loading issues
         const useAudioEngine = () => {
@@ -465,6 +545,9 @@
                             </div>
                         </div>
 
+                        {/* Ad Banner 1 - After Status Display */}
+                        {React.createElement(ResponsiveAdBanner, { slot: '1234567890' })}
+
                         {/* Main Controls */}
                         <div className="p-4 border-b">
                             <div className="flex justify-center mb-4">
@@ -563,6 +646,9 @@
                             </div>
                         </div>
 
+                        {/* Ad Banner 2 - After Category Tabs */}
+                        {React.createElement(ResponsiveAdBanner, { slot: '0987654321' })}
+
                         {/* Frequency List */}
                         <div className="max-h-96 overflow-y-auto">
                             {activeTab === 'custom' && customFrequencies.length === 0 ? (
@@ -623,6 +709,9 @@
                                 </div>
                             )}
                         </div>
+
+                        {/* Square Ad - Before Footer */}
+                        {React.createElement(SquareAd, { slot: '1122334455' })}
 
                         {/* Footer */}
                         <div className="p-4 bg-blue-50 text-center">

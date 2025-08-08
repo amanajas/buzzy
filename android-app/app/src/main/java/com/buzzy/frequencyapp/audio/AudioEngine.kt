@@ -11,6 +11,7 @@ class AudioEngine {
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
     private var playbackJob: Job? = null
+    private val audioScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     
     var leftFrequency = 440f
     var rightFrequency = 440f
@@ -54,17 +55,28 @@ class AudioEngine {
         audioTrack?.play()
         isPlaying = true
         
-        playbackJob = CoroutineScope(Dispatchers.IO).launch {
+        playbackJob = audioScope.launch {
             generateAndPlayAudio()
         }
     }
     
     fun stopAudio() {
         isPlaying = false
-        playbackJob?.cancel()
+        
+        // Cancel the job and wait for it to complete
+        runBlocking {
+            playbackJob?.cancelAndJoin()
+        }
+        playbackJob = null
+        
         audioTrack?.apply {
-            stop()
-            release()
+            try {
+                stop()
+                flush()
+                release()
+            } catch (e: Exception) {
+                // Ignore exceptions during cleanup
+            }
         }
         audioTrack = null
     }
@@ -74,7 +86,7 @@ class AudioEngine {
         var leftPhase = 0.0
         var rightPhase = 0.0
         
-        while (isPlaying) {
+        while (isPlaying && audioTrack != null) {
             for (i in buffer.indices step 2) {
                 // Left channel
                 val leftSample = generateWave(leftPhase, waveType) * leftVolume * Short.MAX_VALUE
@@ -89,7 +101,16 @@ class AudioEngine {
                 if (rightPhase > 2.0 * PI) rightPhase -= 2.0 * PI
             }
             
-            audioTrack?.write(buffer, 0, buffer.size)
+            // Safety check before writing
+            val track = audioTrack
+            if (track != null && isPlaying) {
+                try {
+                    track.write(buffer, 0, buffer.size)
+                } catch (e: IllegalStateException) {
+                    // AudioTrack has been released, stop playback
+                    break
+                }
+            }
             yield()
         }
     }
@@ -144,5 +165,10 @@ class AudioEngine {
     
     enum class Channel {
         LEFT, RIGHT, BOTH
+    }
+    
+    fun release() {
+        stopAudio()
+        audioScope.cancel()
     }
 }

@@ -45,78 +45,81 @@ class FrequencyViewModel(
     }
     
     private fun loadPreferences() {
+        // Load custom frequencies
         viewModelScope.launch {
-            // Load custom frequencies
             dataManager.getCustomFrequencies().collect { customFrequencies ->
                 _uiState.update { it.copy(customFrequencies = customFrequencies) }
                 updateFilteredFrequencies()
             }
         }
         
+        // Combine selected frequencies and volumes in one collector
         viewModelScope.launch {
-            // Load selected frequencies
             combine(
                 dataManager.getSelectedLeftFrequency(),
-                dataManager.getSelectedRightFrequency()
-            ) { left, right ->
-                Pair(left, right)
-            }.collect { (leftFreq, rightFreq) ->
-                _uiState.update { state ->
-                    state.copy(
-                        selectedLeftFrequency = leftFreq,
-                        selectedRightFrequency = rightFreq,
-                        leftFreq = when (leftFreq) {
-                            is FrequencyItem.Mono -> leftFreq.frequency.freq
-                            is FrequencyItem.Binaural -> leftFreq.frequency.left
-                            null -> state.leftFreq
-                        },
-                        rightFreq = when (rightFreq) {
-                            is FrequencyItem.Mono -> rightFreq.frequency.freq
-                            is FrequencyItem.Binaural -> rightFreq.frequency.right
-                            null -> state.rightFreq
-                        }
-                    )
-                }
-            }
-        }
-        
-        viewModelScope.launch {
-            // Load volume preferences
-            combine(
+                dataManager.getSelectedRightFrequency(),
                 dataManager.getLeftVolume(),
                 dataManager.getRightVolume()
-            ) { left, right ->
-                Pair(left, right)
-            }.collect { (leftVolume, rightVolume) ->
-                _uiState.update { it.copy(leftVolume = leftVolume, rightVolume = rightVolume) }
-                audioEngine.leftVolume = leftVolume
-                audioEngine.rightVolume = rightVolume
+            ) { leftFreq, rightFreq, leftVol, rightVol ->
+                SelectedData(leftFreq, rightFreq, leftVol, rightVol)
+            }.collect { selected ->
+                _uiState.update { state ->
+                    state.copy(
+                        selectedLeftFrequency = selected.leftFrequency,
+                        selectedRightFrequency = selected.rightFrequency,
+                        leftFreq = when (selected.leftFrequency) {
+                            is FrequencyItem.Mono -> selected.leftFrequency.frequency.freq
+                            is FrequencyItem.Binaural -> selected.leftFrequency.frequency.left
+                            null -> state.leftFreq
+                        },
+                        rightFreq = when (selected.rightFrequency) {
+                            is FrequencyItem.Mono -> selected.rightFrequency.frequency.freq
+                            is FrequencyItem.Binaural -> selected.rightFrequency.frequency.right
+                            null -> state.rightFreq
+                        },
+                        leftVolume = selected.leftVolume,
+                        rightVolume = selected.rightVolume
+                    )
+                }
+                audioEngine.leftVolume = selected.leftVolume
+                audioEngine.rightVolume = selected.rightVolume
             }
         }
         
+        // Load other preferences
         viewModelScope.launch {
-            // Load wave type preference
-            dataManager.getWaveType().collect { waveType ->
-                _uiState.update { it.copy(waveType = waveType) }
-                audioEngine.waveType = waveType
-            }
-        }
-        
-        viewModelScope.launch {
-            // Load active tab preference
-            dataManager.getActiveTab().collect { activeTab ->
-                _uiState.update { it.copy(activeTab = activeTab) }
+            combine(
+                dataManager.getWaveType(),
+                dataManager.getActiveTab(),
+                dataManager.getLanguage()
+            ) { wave, tab, lang ->
+                OtherPreferences(wave, tab, lang)
+            }.collect { prefs ->
+                _uiState.update { state ->
+                    state.copy(
+                        waveType = prefs.waveType,
+                        activeTab = prefs.activeTab,
+                        currentLanguage = prefs.language
+                    )
+                }
+                audioEngine.waveType = prefs.waveType
                 updateFilteredFrequencies()
             }
         }
-        
-        viewModelScope.launch {
-            // Load language preference
-            dataManager.getLanguage().collect { language ->
-                _uiState.update { it.copy(currentLanguage = language) }
-            }
-        }
     }
+    
+    private data class SelectedData(
+        val leftFrequency: FrequencyItem?,
+        val rightFrequency: FrequencyItem?,
+        val leftVolume: Float,
+        val rightVolume: Float
+    )
+    
+    private data class OtherPreferences(
+        val waveType: AudioEngine.WaveType,
+        val activeTab: String,
+        val language: String
+    )
     
     fun startAudio() {
         val currentState = _uiState.value
@@ -493,6 +496,6 @@ class FrequencyViewModel(
     
     override fun onCleared() {
         super.onCleared()
-        audioEngine.stopAudio()
+        audioEngine.release()
     }
 }

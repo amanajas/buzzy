@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">फ्रीक्वेंसी जेनरेटर</string>
+    
+    <!-- Header -->
+    <string name="app_title">फ्रीक्वेंसी जेनरेटर</string>
+    <string name="headphone_warning">🎧 बेहतर अनुभव के लिए हेडफोन का उपयोग करें</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">चुनी गई फ्रीक्वेंसी</string>
+    <string name="left_ear">🎧 बाएं कान</string>
+    <string name="right_ear">🎧 दाएं कान</string>
+    <string name="no_frequency_selected">कोई फ्रीक्वेंसी चुनी नहीं गई</string>
+    <string name="silent">मौन</string>
+    <string name="playing">♫ चल रहा है ♫</string>
+    <string name="ready_to_play">● चलाने के लिए तैयार ●</string>
+    <string name="select_frequencies_to_play">⚪ चलाने के लिए फ्रीक्वेंसी चुनें</string>
+    <string name="left_volume">बाएं वॉल्यूम</string>
+    <string name="right_volume">दाएं वॉल्यूम</string>
+    
+    <!-- Main Controls -->
+    <string name="play">चलाएं</string>
+    <string name="stop">रोकें</string>
+    <string name="wave_type">तरंग प्रकार</string>
+    <string name="sine">साइन</string>
+    <string name="square">वर्ग</string>
+    <string name="sawtooth">आरा दांत</string>
+    <string name="triangle">त्रिकोण</string>
+    <string name="quick_frequency">त्वरित फ्रीक्वेंसी (20-20000 Hz)</string>
+    <string name="enter_hz">Hz दर्ज करें</string>
+    <string name="apply">लागू करें</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">फ्रीक्वेंसी खोजें...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">कस्टम</string>
+    <string name="therapeutic">चिकित्सक</string>
+    <string name="musical">संगीत</string>
+    <string name="binaural">बाइनॉरल</string>
+    <string name="brainwaves">मस्तिष्क तरंगें</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">कस्टम फ्रीक्वेंसी जोड़ें</string>
+    <string name="frequency_name">फ्रीक्वेंसी का नाम</string>
+    <string name="enter_name">नाम दर्ज करें</string>
+    <string name="description">विवरण</string>
+    <string name="enter_description">विवरण दर्ज करें</string>
+    <string name="left_frequency_hz">बाईं फ्रीक्वेंसी (Hz)</string>
+    <string name="right_frequency_hz">दाईं फ्रीक्वेंसी (Hz)</string>
+    <string name="frequency_hz">फ्रीक्वेंसी (Hz)</string>
+    <string name="enter_frequency">फ्रीक्वेंसी दर्ज करें</string>
+    <string name="save">सहेजें</string>
+    <string name="cancel">रद्द करें</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">अभी तक कोई कस्टम फ्रीक्वेंसी नहीं</string>
+    <string name="no_frequencies_found">कोई फ्रीक्वेंसी नहीं मिली</string>
+    <string name="left_ear_button">🎧 बाएं कान</string>
+    <string name="right_ear_button">🎧 दाएं कान</string>
+    <string name="both_ears">🎧 दोनों कान</string>
+    <string name="binaural_beat_uses_both">बाइनॉरल बीट - दोनों कानों का उपयोग</string>
+    <string name="play_binaural_beat">बाइनॉरल बीट चलाएं</string>
+    <string name="delete">हटाएं</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">कस्टम फ्रीक्वेंसी हटाएं</string>
+    <string name="delete_confirmation_message">क्या आप वाकई \"%1$s\" को हटाना चाहते हैं?\n\nयह क्रिया पूर्ववत नहीं हो सकती।</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 सुझाव: बाइनॉरल बीट के लिए हेडफोन का उपयोग करें। कम वॉल्यूम से शुरू करें।</string>
+    <string name="safety_warning">⚠️ अपनी सुनने की क्षमता की सुरक्षा के लिए वॉल्यूम सुरक्षित स्तर पर रखें।</string>
+    
+    <!-- Language Selection -->
+    <string name="language">भाषा</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="language_changed">भाषा बदल गई। लागू करने के लिए ऐप को पुनः आरंभ करें।</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">अमान्य फ्रीक्वेंसी। कृपया 20-20000 Hz के बीच का मान दर्ज करें।</string>
+    <string name="empty_name">कृपया फ्रीक्वेंसी के लिए एक नाम दर्ज करें।</string>
+    <string name="frequency_exists">इस नाम की फ्रीक्वेंसी पहले से मौजूद है।</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">साइन तरंग</string>
+    <string name="wave_square">वर्गाकार तरंग</string>
+    <string name="wave_sawtooth">आरी दांत तरंग</string>
+    <string name="wave_triangle">त्रिकोणीय तरंग</string>
+    <string name="quick_frequency_range">त्वरित फ्रीक्वेंसी (20-20000 Hz)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">फ्रीक्वेंसी हटाएं</string>
+    <string name="play_pause">ऑडियो चलाएं या रोकें</string>
+    <string name="volume_control">वॉल्यूम नियंत्रण</string>
+    <string name="wave_type_selection">तरंग प्रकार चयन</string>
+    <string name="frequency_selection">फ्रीक्वेंसी चयन</string>
+</resources>

@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">주파수 생성기</string>
+    
+    <!-- Header -->
+    <string name="app_title">주파수 생성기</string>
+    <string name="headphone_warning">🎧 최고의 경험을 위해 헤드폰을 사용하세요</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">선택된 주파수</string>
+    <string name="left_ear">🎧 왼쪽 귀</string>
+    <string name="right_ear">🎧 오른쪽 귀</string>
+    <string name="no_frequency_selected">선택된 주파수 없음</string>
+    <string name="silent">무음</string>
+    <string name="playing">♫ 재생 중 ♫</string>
+    <string name="ready_to_play">● 재생 준비 완료 ●</string>
+    <string name="select_frequencies_to_play">⚪ 재생할 주파수를 선택하세요</string>
+    <string name="left_volume">왼쪽 볼륨</string>
+    <string name="right_volume">오른쪽 볼륨</string>
+    
+    <!-- Main Controls -->
+    <string name="play">재생</string>
+    <string name="stop">정지</string>
+    <string name="wave_type">파형 유형</string>
+    <string name="sine">사인파</string>
+    <string name="square">구형파</string>
+    <string name="sawtooth">톱니파</string>
+    <string name="triangle">삼각파</string>
+    <string name="quick_frequency">빠른 주파수 (20-20000 Hz)</string>
+    <string name="enter_hz">Hz 입력</string>
+    <string name="apply">적용</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">주파수 검색...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">사용자 정의</string>
+    <string name="therapeutic">치료용</string>
+    <string name="musical">음악용</string>
+    <string name="binaural">바이노럴</string>
+    <string name="brainwaves">뇌파</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">사용자 정의 주파수 추가</string>
+    <string name="frequency_name">주파수 이름</string>
+    <string name="enter_name">이름 입력</string>
+    <string name="description">설명</string>
+    <string name="enter_description">설명 입력</string>
+    <string name="left_frequency_hz">왼쪽 주파수 (Hz)</string>
+    <string name="right_frequency_hz">오른쪽 주파수 (Hz)</string>
+    <string name="frequency_hz">주파수 (Hz)</string>
+    <string name="enter_frequency">주파수 입력</string>
+    <string name="save">저장</string>
+    <string name="cancel">취소</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">아직 사용자 정의 주파수가 없습니다</string>
+    <string name="no_frequencies_found">주파수를 찾을 수 없습니다</string>
+    <string name="left_ear_button">🎧 왼쪽 귀</string>
+    <string name="right_ear_button">🎧 오른쪽 귀</string>
+    <string name="both_ears">🎧 양쪽 귀</string>
+    <string name="binaural_beat_uses_both">바이노럴 비트 - 양쪽 귀 사용</string>
+    <string name="play_binaural_beat">바이노럴 비트 재생</string>
+    <string name="delete">삭제</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">사용자 정의 주파수 삭제</string>
+    <string name="delete_confirmation_message">\"%1$s\"을(를) 삭제하시겠습니까?\n\n이 작업은 되돌릴 수 없습니다.</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 팁: 바이노럴 비트에는 헤드폰을 사용하세요. 낮은 볼륨으로 시작하세요.</string>
+    <string name="safety_warning">⚠️ 청력 보호를 위해 볼륨을 안전한 수준으로 유지하세요.</string>
+    
+    <!-- Language Selection -->
+    <string name="language">언어</string>
+    <string name="select_language">언어 선택</string>
+    <string name="language_changed">언어가 변경되었습니다. 적용하려면 앱을 다시 시작하세요.</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">유효하지 않은 주파수입니다. 20-20000 Hz 범위의 값을 입력하세요.</string>
+    <string name="empty_name">주파수 이름을 입력하세요.</string>
+    <string name="frequency_exists">이 이름의 주파수가 이미 존재합니다.</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">사인파</string>
+    <string name="wave_square">사각파</string>
+    <string name="wave_sawtooth">톱니파</string>
+    <string name="wave_triangle">삼각파</string>
+    <string name="quick_frequency_range">빠른 주파수 (20-20000 Hz)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">주파수 삭제</string>
+    <string name="play_pause">오디오 재생 또는 일시정지</string>
+    <string name="volume_control">볼륨 조절</string>
+    <string name="wave_type_selection">파형 유형 선택</string>
+    <string name="frequency_selection">주파수 선택</string>
+</resources>

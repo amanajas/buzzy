@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Generador de Frecuencias</string>
+    
+    <!-- Header -->
+    <string name="app_title">Generador de Frecuencias</string>
+    <string name="headphone_warning">🎧 Usa auriculares para la mejor experiencia</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">Frecuencias Seleccionadas</string>
+    <string name="left_ear">🎧 Oído Izquierdo</string>
+    <string name="right_ear">🎧 Oído Derecho</string>
+    <string name="no_frequency_selected">Ninguna frecuencia seleccionada</string>
+    <string name="silent">Silencio</string>
+    <string name="playing">♫ Reproduciendo ♫</string>
+    <string name="ready_to_play">● Listo para Reproducir ●</string>
+    <string name="select_frequencies_to_play">⚪ Selecciona frecuencias para reproducir</string>
+    <string name="left_volume">Volumen Izquierdo</string>
+    <string name="right_volume">Volumen Derecho</string>
+    
+    <!-- Main Controls -->
+    <string name="play">Reproducir</string>
+    <string name="stop">Parar</string>
+    <string name="wave_type">Tipo de Onda</string>
+    <string name="sine">Senoidal</string>
+    <string name="square">Cuadrada</string>
+    <string name="sawtooth">Diente de Sierra</string>
+    <string name="triangle">Triangular</string>
+    <string name="quick_frequency">Frecuencia Rápida (20-20000 Hz)</string>
+    <string name="enter_hz">Ingresa Hz</string>
+    <string name="apply">Aplicar</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">Buscar frecuencias...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">Personalizada</string>
+    <string name="therapeutic">Terapéutica</string>
+    <string name="musical">Musical</string>
+    <string name="binaural">Binaural</string>
+    <string name="brainwaves">Ondas Cerebrales</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">Agregar Frecuencia Personalizada</string>
+    <string name="frequency_name">Nombre de la Frecuencia</string>
+    <string name="enter_name">Ingresa nombre</string>
+    <string name="description">Descripción</string>
+    <string name="enter_description">Ingresa descripción</string>
+    <string name="left_frequency_hz">Frecuencia Izquierda (Hz)</string>
+    <string name="right_frequency_hz">Frecuencia Derecha (Hz)</string>
+    <string name="frequency_hz">Frecuencia (Hz)</string>
+    <string name="enter_frequency">Ingresa frecuencia</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">Aún no hay frecuencias personalizadas</string>
+    <string name="no_frequencies_found">No se encontraron frecuencias</string>
+    <string name="left_ear_button">🎧 Oído Izquierdo</string>
+    <string name="right_ear_button">🎧 Oído Derecho</string>
+    <string name="both_ears">🎧 Ambos Oídos</string>
+    <string name="binaural_beat_uses_both">Latido Binaural - Usa Ambos Oídos</string>
+    <string name="play_binaural_beat">Reproducir Latido Binaural</string>
+    <string name="delete">Eliminar</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">Eliminar Frecuencia Personalizada</string>
+    <string name="delete_confirmation_message">¿Estás seguro de que quieres eliminar \"%1$s\"?\n\nEsta acción no se puede deshacer.</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 Consejos: Usa auriculares para latidos binaurales. Comienza con volumen bajo.</string>
+    <string name="safety_warning">⚠️ Mantén el volumen en niveles seguros para proteger tu audición.</string>
+    
+    <!-- Language Selection -->
+    <string name="language">Idioma</string>
+    <string name="select_language">Seleccionar Idioma</string>
+    <string name="language_changed">Idioma cambiado. Reinicia la aplicación para aplicar.</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">Frecuencia inválida. Por favor ingresa un valor entre 20-20000 Hz.</string>
+    <string name="empty_name">Por favor ingresa un nombre para la frecuencia.</string>
+    <string name="frequency_exists">Ya existe una frecuencia con este nombre.</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">Seno</string>
+    <string name="wave_square">Cuadrada</string>
+    <string name="wave_sawtooth">Diente de sierra</string>
+    <string name="wave_triangle">Triangular</string>
+    <string name="quick_frequency_range">Frecuencia rápida (20-20000 Hz)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">Eliminar frecuencia</string>
+    <string name="play_pause">Reproducir o pausar audio</string>
+    <string name="volume_control">Control de volumen</string>
+    <string name="wave_type_selection">Selección de tipo de onda</string>
+    <string name="frequency_selection">Selección de frecuencia</string>
+</resources>

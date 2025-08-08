@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">周波数ジェネレーター</string>
+    
+    <!-- Header -->
+    <string name="app_title">周波数ジェネレーター</string>
+    <string name="headphone_warning">🎧 最高の体験にはヘッドフォンをご使用ください</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">選択された周波数</string>
+    <string name="left_ear">🎧 左耳</string>
+    <string name="right_ear">🎧 右耳</string>
+    <string name="no_frequency_selected">周波数が選択されていません</string>
+    <string name="silent">無音</string>
+    <string name="playing">♫ 再生中 ♫</string>
+    <string name="ready_to_play">● 再生準備完了 ●</string>
+    <string name="select_frequencies_to_play">⚪ 再生する周波数を選択してください</string>
+    <string name="left_volume">左音量</string>
+    <string name="right_volume">右音量</string>
+    
+    <!-- Main Controls -->
+    <string name="play">再生</string>
+    <string name="stop">停止</string>
+    <string name="wave_type">波形タイプ</string>
+    <string name="sine">正弦波</string>
+    <string name="square">方形波</string>
+    <string name="sawtooth">ノコギリ波</string>
+    <string name="triangle">三角波</string>
+    <string name="quick_frequency">クイック周波数 (20-20000 Hz)</string>
+    <string name="enter_hz">Hzを入力</string>
+    <string name="apply">適用</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">周波数を検索...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">カスタム</string>
+    <string name="therapeutic">療法</string>
+    <string name="musical">音楽</string>
+    <string name="binaural">バイノーラル</string>
+    <string name="brainwaves">脳波</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">カスタム周波数を追加</string>
+    <string name="frequency_name">周波数名</string>
+    <string name="enter_name">名前を入力</string>
+    <string name="description">説明</string>
+    <string name="enter_description">説明を入力</string>
+    <string name="left_frequency_hz">左周波数 (Hz)</string>
+    <string name="right_frequency_hz">右周波数 (Hz)</string>
+    <string name="frequency_hz">周波数 (Hz)</string>
+    <string name="enter_frequency">周波数を入力</string>
+    <string name="save">保存</string>
+    <string name="cancel">キャンセル</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">カスタム周波数はまだありません</string>
+    <string name="no_frequencies_found">周波数が見つかりません</string>
+    <string name="left_ear_button">🎧 左耳</string>
+    <string name="right_ear_button">🎧 右耳</string>
+    <string name="both_ears">🎧 両耳</string>
+    <string name="binaural_beat_uses_both">バイノーラルビート - 両耳を使用</string>
+    <string name="play_binaural_beat">バイノーラルビートを再生</string>
+    <string name="delete">削除</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">カスタム周波数を削除</string>
+    <string name="delete_confirmation_message">\"%1$s\"を削除してもよろしいですか？\n\nこの操作は元に戻せません。</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 ヒント：バイノーラルビートにはヘッドフォンを使用してください。低音量から始めてください。</string>
+    <string name="safety_warning">⚠️ 聴覚を保護するため、音量を安全なレベルに保ってください。</string>
+    
+    <!-- Language Selection -->
+    <string name="language">言語</string>
+    <string name="select_language">言語を選択</string>
+    <string name="language_changed">言語が変更されました。適用するにはアプリを再起動してください。</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">無効な周波数です。20-20000 Hzの範囲で入力してください。</string>
+    <string name="empty_name">周波数の名前を入力してください。</string>
+    <string name="frequency_exists">この名前の周波数は既に存在します。</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">正弦波</string>
+    <string name="wave_square">矩形波</string>
+    <string name="wave_sawtooth">ノコギリ波</string>
+    <string name="wave_triangle">三角波</string>
+    <string name="quick_frequency_range">クイック周波数 (20-20000 Hz)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">周波数を削除</string>
+    <string name="play_pause">オーディオを再生または一時停止</string>
+    <string name="volume_control">音量コントロール</string>
+    <string name="wave_type_selection">波形タイプの選択</string>
+    <string name="frequency_selection">周波数の選択</string>
+</resources>

@@ -85,6 +85,7 @@ fun FrequencyApp(
                     MainControls(
                         isPlaying = uiState.isPlaying,
                         waveType = uiState.waveType,
+                        hasSelectedFrequencies = uiState.selectedLeftFrequency != null || uiState.selectedRightFrequency != null,
                         onPlayPause = {
                             if (uiState.isPlaying) {
                                 viewModel.stopAudio()

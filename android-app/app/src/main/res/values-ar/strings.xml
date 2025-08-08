@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">مولد الترددات</string>
+    
+    <!-- Header -->
+    <string name="app_title">مولد الترددات</string>
+    <string name="headphone_warning">🎧 استخدم سماعات الرأس للحصول على أفضل تجربة</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">الترددات المحددة</string>
+    <string name="left_ear">🎧 الأذن اليسرى</string>
+    <string name="right_ear">🎧 الأذن اليمنى</string>
+    <string name="no_frequency_selected">لم يتم تحديد تردد</string>
+    <string name="silent">صامت</string>
+    <string name="playing">♫ قيد التشغيل ♫</string>
+    <string name="ready_to_play">● جاهز للتشغيل ●</string>
+    <string name="select_frequencies_to_play">⚪ اختر ترددات للتشغيل</string>
+    <string name="left_volume">الصوت الأيسر</string>
+    <string name="right_volume">الصوت الأيمن</string>
+    
+    <!-- Main Controls -->
+    <string name="play">تشغيل</string>
+    <string name="stop">إيقاف</string>
+    <string name="wave_type">نوع الموجة</string>
+    <string name="sine">جيبية</string>
+    <string name="square">مربعة</string>
+    <string name="sawtooth">منشارية</string>
+    <string name="triangle">مثلثية</string>
+    <string name="quick_frequency">التردد السريع (20-20000 هرتز)</string>
+    <string name="enter_hz">أدخل هرتز</string>
+    <string name="apply">تطبيق</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">البحث عن ترددات...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">مخصص</string>
+    <string name="therapeutic">علاجي</string>
+    <string name="musical">موسيقي</string>
+    <string name="binaural">ثنائي الأذن</string>
+    <string name="brainwaves">موجات المخ</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">إضافة تردد مخصص</string>
+    <string name="frequency_name">اسم التردد</string>
+    <string name="enter_name">أدخل الاسم</string>
+    <string name="description">الوصف</string>
+    <string name="enter_description">أدخل الوصف</string>
+    <string name="left_frequency_hz">التردد الأيسر (هرتز)</string>
+    <string name="right_frequency_hz">التردد الأيمن (هرتز)</string>
+    <string name="frequency_hz">التردد (هرتز)</string>
+    <string name="enter_frequency">أدخل التردد</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">لا توجد ترددات مخصصة بعد</string>
+    <string name="no_frequencies_found">لم يتم العثور على ترددات</string>
+    <string name="left_ear_button">🎧 الأذن اليسرى</string>
+    <string name="right_ear_button">🎧 الأذن اليمنى</string>
+    <string name="both_ears">🎧 كلتا الأذنين</string>
+    <string name="binaural_beat_uses_both">النبضة ثنائية الأذن - تستخدم كلتا الأذنين</string>
+    <string name="play_binaural_beat">تشغيل النبضة ثنائية الأذن</string>
+    <string name="delete">حذف</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">حذف التردد المخصص</string>
+    <string name="delete_confirmation_message">هل أنت متأكد من حذف \"%1$s\"؟\n\nلا يمكن التراجع عن هذا الإجراء.</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 نصائح: استخدم سماعات الرأس للنبضات ثنائية الأذن. ابدأ بصوت منخفض.</string>
+    <string name="safety_warning">⚠️ احتفظ بالصوت في مستويات آمنة لحماية سمعك.</string>
+    
+    <!-- Language Selection -->
+    <string name="language">اللغة</string>
+    <string name="select_language">اختر اللغة</string>
+    <string name="language_changed">تم تغيير اللغة. أعد تشغيل التطبيق للتطبيق.</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">تردد غير صالح. يرجى إدخال قيمة بين 20-20000 هرتز.</string>
+    <string name="empty_name">يرجى إدخال اسم للتردد.</string>
+    <string name="frequency_exists">يوجد تردد بهذا الاسم بالفعل.</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">موجة جيبية</string>
+    <string name="wave_square">موجة مربعة</string>
+    <string name="wave_sawtooth">موجة منشارية</string>
+    <string name="wave_triangle">موجة مثلثية</string>
+    <string name="quick_frequency_range">تردد سريع (20-20000 هرتز)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">حذف التردد</string>
+    <string name="play_pause">تشغيل أو إيقاف الصوت مؤقتاً</string>
+    <string name="volume_control">التحكم في الصوت</string>
+    <string name="wave_type_selection">اختيار نوع الموجة</string>
+    <string name="frequency_selection">اختيار التردد</string>
+</resources>

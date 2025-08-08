@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.util.Locale
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "frequency_app_prefs")
 
@@ -23,6 +24,7 @@ class DataManager(private val context: Context) {
         private val RIGHT_VOLUME_KEY = floatPreferencesKey("right_volume")
         private val WAVE_TYPE_KEY = stringPreferencesKey("wave_type")
         private val ACTIVE_TAB_KEY = stringPreferencesKey("active_tab")
+        private val LANGUAGE_KEY = stringPreferencesKey("language")
         
         private val json = Json { 
             ignoreUnknownKeys = true
@@ -139,6 +141,41 @@ class DataManager(private val context: Context) {
     fun getActiveTab(): Flow<String> {
         return context.dataStore.data.map { preferences ->
             preferences[ACTIVE_TAB_KEY] ?: "therapeutic"
+        }
+    }
+    
+    // Language preference
+    suspend fun saveLanguage(language: String) {
+        context.dataStore.edit { preferences ->
+            preferences[LANGUAGE_KEY] = language
+        }
+    }
+    
+    fun getLanguage(): Flow<String> {
+        return context.dataStore.data.map { preferences ->
+            preferences[LANGUAGE_KEY] ?: getDeviceLanguage()
+        }
+    }
+    
+    private fun getDeviceLanguage(): String {
+        val deviceLocale = Locale.getDefault()
+        val language = deviceLocale.language
+        val country = deviceLocale.country
+        
+        // Map device locale to supported languages
+        return when {
+            language == "en" -> "en"
+            language == "es" -> "es"
+            language == "fr" -> "fr"
+            language == "de" -> "de"
+            language == "pt" && country == "BR" -> "pt-rBR"
+            language == "pt" -> "pt"
+            language == "ja" -> "ja"
+            language == "zh" -> "zh-rCN"
+            language == "ko" -> "ko"
+            language == "ar" -> "ar"
+            language == "hi" -> "hi"
+            else -> "en" // Default to English if no match
         }
     }
 }

@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Frequenz-Generator</string>
+    
+    <!-- Header -->
+    <string name="app_title">Frequenz-Generator</string>
+    <string name="headphone_warning">🎧 Für beste Erfahrung Kopfhörer verwenden</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">Ausgewählte Frequenzen</string>
+    <string name="left_ear">🎧 Linkes Ohr</string>
+    <string name="right_ear">🎧 Rechtes Ohr</string>
+    <string name="silent">Stumm</string>
+    <string name="playing">♫ Läuft ♫</string>
+    <string name="ready_to_play">● Bereit zum Abspielen ●</string>
+    <string name="select_frequencies_to_play">⚪ Frequenzen zum Abspielen auswählen</string>
+    <string name="left_volume">Linke Lautstärke</string>
+    <string name="right_volume">Rechte Lautstärke</string>
+    
+    <!-- Main Controls -->
+    <string name="play">Abspielen</string>
+    <string name="stop">Stopp</string>
+    <string name="no_frequency_selected">Frequenzen zum Abspielen auswählen</string>
+    <string name="wave_type">Wellenform</string>
+    <string name="sine">Sinus</string>
+    <string name="square">Rechteck</string>
+    <string name="sawtooth">Sägezahn</string>
+    <string name="triangle">Dreieck</string>
+    <string name="quick_frequency">Schnelle Frequenz (20-20000 Hz)</string>
+    <string name="quick_frequency_range">Schnelle Frequenz (20-20000 Hz)</string>
+    <string name="enter_hz">Hz eingeben</string>
+    <string name="apply">Anwenden</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">Sinus</string>
+    <string name="wave_square">Rechteck</string>
+    <string name="wave_sawtooth">Sägezahn</string>
+    <string name="wave_triangle">Dreieck</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">Frequenzen suchen...</string>
+    
+    <!-- Categories -->
+    <string name="custom">Benutzerdefiniert</string>
+    <string name="therapeutic">Therapeutisch</string>
+    <string name="musical">Musikalisch</string>
+    <string name="binaural">Binaural</string>
+    <string name="brainwaves">Gehirnwellen</string>
+    
+    <!-- Frequency Actions -->
+    <string name="left">Links</string>
+    <string name="right">Rechts</string>
+    <string name="both">Beide</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">Benutzerdefinierte Frequenz hinzufügen</string>
+    <string name="frequency_name">Frequenzname</string>
+    <string name="frequency_name_hint">Name eingeben</string>
+    <string name="description">Beschreibung</string>
+    <string name="description_hint">Beschreibung eingeben (optional)</string>
+    <string name="left_frequency_hz">Linke Frequenz (Hz)</string>
+    <string name="right_frequency_hz">Rechte Frequenz (Hz)</string>
+    <string name="frequency_hz">Frequenz (Hz)</string>
+    <string name="save">Speichern</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="show_form">+ Benutzerdefinierte Frequenz</string>
+    <string name="hide_form">Formular verstecken</string>
+    
+    <!-- Delete Confirmation -->
+    <string name="delete_custom_frequency">Benutzerdefinierte Frequenz löschen</string>
+    <string name="delete_confirmation_title">Löschen bestätigen</string>
+    <string name="delete_confirmation_message">Sind Sie sicher, dass Sie \"%1$s\" löschen möchten?\n\nDiese Aktion kann nicht rückgängig gemacht werden.</string>
+    <string name="delete">Löschen</string>
+    
+    <!-- Language Selection -->
+    <string name="language">Sprache</string>
+    <string name="select_language">Sprache auswählen</string>
+    <string name="language_changed">Sprache geändert. App neu starten, um anzuwenden.</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">Ungültige Frequenz. Bitte geben Sie einen Wert zwischen 20-20000 Hz ein.</string>
+    <string name="empty_name">Bitte geben Sie einen Namen für die Frequenz ein.</string>
+    <string name="frequency_exists">Eine Frequenz mit diesem Namen existiert bereits.</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">Frequenz löschen</string>
+    <string name="play_pause">Audio abspielen oder pausieren</string>
+    <string name="volume_control">Lautstärkeregler</string>
+    <string name="wave_type_selection">Wellenform-Auswahl</string>
+    <string name="frequency_selection">Frequenz-Auswahl</string>
+    
+    <!-- Help Text -->
+    <string name="help_binaural_beats">Binaurale Beats: Verschiedene Frequenzen in jedem Ohr für Gehirnwellen-Synchronisation</string>
+    <string name="help_therapeutic_frequencies">Therapeutische Frequenzen: Traditionelle Heilfrequenzen und Solfeggio-Töne</string>
+    <string name="help_volume_safety">Sicherheit: Lautstärke ist auf 30%% begrenzt, um Ihr Gehör zu schützen</string>
+    <string name="help_wave_types">Wellenformen: Verschiedene Wellenformen erzeugen unterschiedliche harmonische Inhalte</string>
+</resources>

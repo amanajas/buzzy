@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">频率生成器</string>
+    
+    <!-- Header -->
+    <string name="app_title">频率生成器</string>
+    <string name="headphone_warning">🎧 使用耳机获得最佳体验</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">已选择的频率</string>
+    <string name="left_ear">🎧 左耳</string>
+    <string name="right_ear">🎧 右耳</string>
+    <string name="no_frequency_selected">未选择频率</string>
+    <string name="silent">静音</string>
+    <string name="playing">♫ 播放中 ♫</string>
+    <string name="ready_to_play">● 准备播放 ●</string>
+    <string name="select_frequencies_to_play">⚪ 选择要播放的频率</string>
+    <string name="left_volume">左音量</string>
+    <string name="right_volume">右音量</string>
+    
+    <!-- Main Controls -->
+    <string name="play">播放</string>
+    <string name="stop">停止</string>
+    <string name="wave_type">波形类型</string>
+    <string name="sine">正弦波</string>
+    <string name="square">方波</string>
+    <string name="sawtooth">锯齿波</string>
+    <string name="triangle">三角波</string>
+    <string name="quick_frequency">快速频率 (20-20000 Hz)</string>
+    <string name="enter_hz">输入赫兹</string>
+    <string name="apply">应用</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">搜索频率...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">自定义</string>
+    <string name="therapeutic">治疗</string>
+    <string name="musical">音乐</string>
+    <string name="binaural">双耳</string>
+    <string name="brainwaves">脑波</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">添加自定义频率</string>
+    <string name="frequency_name">频率名称</string>
+    <string name="enter_name">输入名称</string>
+    <string name="description">描述</string>
+    <string name="enter_description">输入描述</string>
+    <string name="left_frequency_hz">左频率 (Hz)</string>
+    <string name="right_frequency_hz">右频率 (Hz)</string>
+    <string name="frequency_hz">频率 (Hz)</string>
+    <string name="enter_frequency">输入频率</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">还没有自定义频率</string>
+    <string name="no_frequencies_found">未找到频率</string>
+    <string name="left_ear_button">🎧 左耳</string>
+    <string name="right_ear_button">🎧 右耳</string>
+    <string name="both_ears">🎧 双耳</string>
+    <string name="binaural_beat_uses_both">双耳拍频 - 使用双耳</string>
+    <string name="play_binaural_beat">播放双耳拍频</string>
+    <string name="delete">删除</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">删除自定义频率</string>
+    <string name="delete_confirmation_message">确定要删除 \"%1$s\" 吗？\n\n此操作无法撤销。</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 提示：双耳拍频请使用耳机。从低音量开始。</string>
+    <string name="safety_warning">⚠️ 保持安全音量以保护您的听力。</string>
+    
+    <!-- Language Selection -->
+    <string name="language">语言</string>
+    <string name="select_language">选择语言</string>
+    <string name="language_changed">语言已更改。重启应用以生效。</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">无效频率。请输入20-20000 Hz范围内的值。</string>
+    <string name="empty_name">请输入频率名称。</string>
+    <string name="frequency_exists">此名称的频率已存在。</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">正弦波</string>
+    <string name="wave_square">方波</string>
+    <string name="wave_sawtooth">锯齿波</string>
+    <string name="wave_triangle">三角波</string>
+    <string name="quick_frequency_range">快速频率 (20-20000 Hz)</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">删除频率</string>
+    <string name="play_pause">播放或暂停音频</string>
+    <string name="volume_control">音量控制</string>
+    <string name="wave_type_selection">波形类型选择</string>
+    <string name="frequency_selection">频率选择</string>
+</resources>

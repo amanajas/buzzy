@@ -1,3 +1,117 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">Frequency App</string>
+    
+    <!-- Header -->
+    <string name="app_title">Frequency Generator</string>
+    <string name="headphone_warning">🎧 Use headphones for the best experience</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">Selected Frequencies</string>
+    <string name="left_ear">🎧 Left Ear</string>
+    <string name="right_ear">🎧 Right Ear</string>
+    <string name="silent">Silent</string>
+    <string name="playing">♫ Playing ♫</string>
+    <string name="ready_to_play">● Ready to Play ●</string>
+    <string name="select_frequencies_to_play">⚪ Select frequencies to play</string>
+    <string name="left_volume">Left Volume</string>
+    <string name="right_volume">Right Volume</string>
+    
+    <!-- Main Controls -->
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="no_frequency_selected">Select frequencies to play</string>
+    <string name="wave_type">Wave Type</string>
+    <string name="sine">Sine</string>
+    <string name="square">Square</string>
+    <string name="sawtooth">Sawtooth</string>
+    <string name="triangle">Triangle</string>
+    <string name="quick_frequency">Quick Frequency (20-20000 Hz)</string>
+    <string name="quick_frequency_range">Quick Frequency (20-20000 Hz)</string>
+    <string name="enter_hz">Enter Hz</string>
+    <string name="apply">Apply</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">Sine</string>
+    <string name="wave_square">Square</string>
+    <string name="wave_sawtooth">Sawtooth</string>
+    <string name="wave_triangle">Triangle</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">Search frequencies...</string>
+    
+    <!-- Category Tabs -->
+    <string name="custom">Custom</string>
+    <string name="therapeutic">Therapeutic</string>
+    <string name="musical">Musical</string>
+    <string name="binaural">Binaural</string>
+    <string name="brainwaves">Brainwaves</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">Add Custom Frequency</string>
+    <string name="frequency_name">Frequency Name</string>
+    <string name="enter_name">Enter name</string>
+    <string name="description">Description</string>
+    <string name="enter_description">Enter description</string>
+    <string name="left_frequency_hz">Left Frequency (Hz)</string>
+    <string name="right_frequency_hz">Right Frequency (Hz)</string>
+    <string name="frequency_hz">Frequency (Hz)</string>
+    <string name="enter_frequency">Enter frequency</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- Frequency List -->
+    <string name="no_custom_frequencies">No custom frequencies yet</string>
+    <string name="no_frequencies_found">No frequencies found</string>
+    <string name="left_ear_button">🎧 Left Ear</string>
+    <string name="right_ear_button">🎧 Right Ear</string>
+    <string name="both_ears">🎧 Both Ears</string>
+    <string name="binaural_beat_uses_both">Binaural Beat - Uses Both Ears</string>
+    <string name="play_binaural_beat">Play Binaural Beat</string>
+    <string name="delete">Delete</string>
+    
+    <!-- Delete Confirmation Dialog -->
+    <string name="delete_custom_frequency">Delete Custom Frequency</string>
+    <string name="delete_confirmation_message">Are you sure you want to delete \"%1$s\"?\n\nThis action cannot be undone.</string>
+    
+    <!-- Footer -->
+    <string name="usage_tips">💡 Tips: Use headphones for binaural beats. Start with low volume.</string>
+    <string name="safety_warning">⚠️ Keep volume at safe levels to protect your hearing.</string>
+    
+    <!-- Language Selection -->
+    <string name="language">Language</string>
+    <string name="select_language">Select Language</string>
+    <string name="language_changed">Language changed. Restart app to apply.</string>
+    
+    <!-- Frequency Actions -->
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="both">Both</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="frequency_name_hint">Enter name</string>
+    <string name="description_hint">Enter description (optional)</string>
+    <string name="show_form">+ Custom Frequency</string>
+    <string name="hide_form">Hide Form</string>
+    
+    <!-- Delete Confirmation -->
+    <string name="delete_confirmation_title">Confirm Delete</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">Invalid frequency. Please enter a value between 20-20000 Hz.</string>
+    <string name="empty_name">Please enter a name for the frequency.</string>
+    <string name="frequency_exists">A frequency with this name already exists.</string>
+    
+    <!-- Help Text -->
+    <string name="help_binaural_beats">Binaural Beats: Different frequencies in each ear for brainwave synchronization</string>
+    <string name="help_therapeutic_frequencies">Therapeutic Frequencies: Traditional healing frequencies and Solfeggio tones</string>
+    <string name="help_volume_safety">Safety: Volume limited to 30%% to protect your hearing</string>
+    <string name="help_wave_types">Wave Types: Different waveforms produce different harmonic content</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">Delete frequency</string>
+    <string name="play_pause">Play or pause audio</string>
+    <string name="volume_control">Volume control</string>
+    <string name="wave_type_selection">Wave type selection</string>
+    <string name="frequency_selection">Frequency selection</string>
 </resources>

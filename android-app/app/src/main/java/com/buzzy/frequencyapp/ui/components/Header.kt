@@ -14,6 +14,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import com.buzzy.frequencyapp.R
 
 @Composable
 fun Header() {
@@ -32,7 +34,7 @@ fun Header() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "♪ Frequency App",
+            text = "♪ ${stringResource(R.string.app_title)}",
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
@@ -61,7 +63,7 @@ fun Header() {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Use headphones for binaural beats",
+                    text = stringResource(R.string.headphone_warning),
                     color = Color.White,
                     fontSize = 12.sp,
                     textAlign = TextAlign.Center

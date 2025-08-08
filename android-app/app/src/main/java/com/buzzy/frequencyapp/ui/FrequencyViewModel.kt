@@ -27,7 +27,8 @@ data class FrequencyUiState(
     val categories: List<String> = listOf("custom", "therapeutic", "musical", "binaural", "brainwaves"),
     val filteredFrequencies: List<FrequencyItem> = emptyList(),
     val showDeleteConfirmation: Boolean = false,
-    val itemToDelete: Int? = null
+    val itemToDelete: Int? = null,
+    val currentLanguage: String = "en"
 )
 
 class FrequencyViewModel(
@@ -108,10 +109,22 @@ class FrequencyViewModel(
                 updateFilteredFrequencies()
             }
         }
+        
+        viewModelScope.launch {
+            // Load language preference
+            dataManager.getLanguage().collect { language ->
+                _uiState.update { it.copy(currentLanguage = language) }
+            }
+        }
     }
     
     fun startAudio() {
         val currentState = _uiState.value
+        
+        // Don't start audio if no frequencies are selected
+        if (currentState.selectedLeftFrequency == null && currentState.selectedRightFrequency == null) {
+            return
+        }
         
         audioEngine.leftFrequency = currentState.leftFreq
         audioEngine.rightFrequency = currentState.rightFreq
@@ -443,6 +456,7 @@ class FrequencyViewModel(
         // This function now just shows the confirmation dialog
         showDeleteConfirmation(index)
     }
+    
     
     private fun updateFilteredFrequencies() {
         viewModelScope.launch {

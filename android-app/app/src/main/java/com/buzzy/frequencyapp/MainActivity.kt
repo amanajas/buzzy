@@ -9,18 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.buzzy.frequencyapp.ui.FrequencyApp
 import com.buzzy.frequencyapp.ui.theme.FrequencyAppTheme
-import com.google.firebase.Firebase
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.analytics
-
 class MainActivity : ComponentActivity() {
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        // Initialize Firebase Analytics
-        firebaseAnalytics = Firebase.analytics
         
         setContent {
             FrequencyAppTheme {

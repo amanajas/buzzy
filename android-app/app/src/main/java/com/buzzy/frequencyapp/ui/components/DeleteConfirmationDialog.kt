@@ -5,7 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
 import com.buzzy.frequencyapp.models.FrequencyItem
+import com.buzzy.frequencyapp.R
 
 @Composable
 fun DeleteConfirmationDialog(
@@ -17,21 +19,18 @@ fun DeleteConfirmationDialog(
         onDismissRequest = onDismiss,
         title = {
             Text(
-                text = "Delete Custom Frequency",
+                text = stringResource(R.string.delete_custom_frequency),
                 fontWeight = FontWeight.Bold,
                 color = Color.White
             )
         },
         text = {
+            val frequencyName = when (frequencyItem) {
+                is FrequencyItem.Mono -> frequencyItem.frequency.name
+                is FrequencyItem.Binaural -> frequencyItem.frequency.name
+            }
             Text(
-                text = buildString {
-                    append("Are you sure you want to delete \"")
-                    append(when (frequencyItem) {
-                        is FrequencyItem.Mono -> frequencyItem.frequency.name
-                        is FrequencyItem.Binaural -> frequencyItem.frequency.name
-                    })
-                    append("\"?\n\nThis action cannot be undone.")
-                },
+                text = stringResource(R.string.delete_confirmation_message, frequencyName),
                 color = Color.White.copy(alpha = 0.8f),
                 fontSize = 14.sp
             )
@@ -44,7 +43,7 @@ fun DeleteConfirmationDialog(
                 )
             ) {
                 Text(
-                    text = "Delete",
+                    text = stringResource(R.string.delete),
                     color = Color.White,
                     fontWeight = FontWeight.Bold
                 )
@@ -57,7 +56,7 @@ fun DeleteConfirmationDialog(
                     contentColor = Color.White.copy(alpha = 0.8f)
                 )
             ) {
-                Text("Cancel")
+                Text(stringResource(R.string.cancel))
             }
         },
         containerColor = Color(0xFF1E2139),

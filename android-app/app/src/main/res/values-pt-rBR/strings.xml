@@ -1,0 +1,97 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Gerador de Frequência</string>
+    
+    <!-- Header -->
+    <string name="app_title">Gerador de Frequência</string>
+    <string name="headphone_warning">🎧 Use fones de ouvido para a melhor experiência</string>
+    
+    <!-- Status Display -->
+    <string name="selected_frequencies">Frequências Selecionadas</string>
+    <string name="left_ear">🎧 Ouvido Esquerdo</string>
+    <string name="right_ear">🎧 Ouvido Direito</string>
+    <string name="silent">Silencioso</string>
+    <string name="playing">♫ Tocando ♫</string>
+    <string name="ready_to_play">● Pronto para Tocar ●</string>
+    <string name="select_frequencies_to_play">⚪ Selecione frequências para tocar</string>
+    <string name="left_volume">Volume Esquerdo</string>
+    <string name="right_volume">Volume Direito</string>
+    
+    <!-- Main Controls -->
+    <string name="play">Tocar</string>
+    <string name="stop">Parar</string>
+    <string name="no_frequency_selected">Selecione frequências para tocar</string>
+    <string name="wave_type">Tipo de Onda</string>
+    <string name="sine">Senoidal</string>
+    <string name="square">Quadrada</string>
+    <string name="sawtooth">Dente de Serra</string>
+    <string name="triangle">Triangular</string>
+    <string name="quick_frequency">Frequência Rápida (20-20000 Hz)</string>
+    <string name="quick_frequency_range">Frequência Rápida (20-20000 Hz)</string>
+    <string name="enter_hz">Digite Hz</string>
+    <string name="apply">Aplicar</string>
+    
+    <!-- Wave Types -->
+    <string name="wave_sine">Senoidal</string>
+    <string name="wave_square">Quadrada</string>
+    <string name="wave_sawtooth">Dente de Serra</string>
+    <string name="wave_triangle">Triangular</string>
+    
+    <!-- Search -->
+    <string name="search_frequencies">Buscar frequências...</string>
+    
+    <!-- Categories -->
+    <string name="custom">Personalizado</string>
+    <string name="therapeutic">Terapêutico</string>
+    <string name="musical">Musical</string>
+    <string name="binaural">Binaural</string>
+    <string name="brainwaves">Ondas Cerebrais</string>
+    
+    <!-- Frequency Actions -->
+    <string name="left">Esquerda</string>
+    <string name="right">Direita</string>
+    <string name="both">Ambos</string>
+    
+    <!-- Custom Frequency Form -->
+    <string name="add_custom_frequency">Adicionar Frequência Personalizada</string>
+    <string name="frequency_name">Nome da Frequência</string>
+    <string name="frequency_name_hint">Digite o nome</string>
+    <string name="description">Descrição</string>
+    <string name="description_hint">Digite a descrição (opcional)</string>
+    <string name="left_frequency_hz">Frequência Esquerda (Hz)</string>
+    <string name="right_frequency_hz">Frequência Direita (Hz)</string>
+    <string name="frequency_hz">Frequência (Hz)</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="show_form">+ Frequência Personalizada</string>
+    <string name="hide_form">Ocultar Formulário</string>
+    
+    <!-- Delete Confirmation -->
+    <string name="delete_custom_frequency">Excluir Frequência Personalizada</string>
+    <string name="delete_confirmation_title">Confirmar Exclusão</string>
+    <string name="delete_confirmation_message">Tem certeza que deseja excluir \"%1$s\"?\n\nEsta ação não pode ser desfeita.</string>
+    <string name="delete">Excluir</string>
+    
+    <!-- Language Selection -->
+    <string name="language">Idioma</string>
+    <string name="select_language">Selecionar Idioma</string>
+    <string name="language_changed">Idioma alterado. Reinicie o app para aplicar.</string>
+    
+    <!-- Error Messages -->
+    <string name="invalid_frequency">Frequência inválida. Por favor, digite um valor entre 20-20000 Hz.</string>
+    <string name="empty_name">Por favor, digite um nome para a frequência.</string>
+    <string name="frequency_exists">Já existe uma frequência com este nome.</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="delete_frequency">Excluir frequência</string>
+    <string name="play_pause">Tocar ou pausar áudio</string>
+    <string name="volume_control">Controle de volume</string>
+    <string name="wave_type_selection">Seleção do tipo de onda</string>
+    <string name="frequency_selection">Seleção de frequência</string>
+    
+    <!-- Help Text -->
+    <string name="help_binaural_beats">Batidas Binaurais: Frequências diferentes em cada ouvido para sincronização de ondas cerebrais</string>
+    <string name="help_therapeutic_frequencies">Frequências Terapêuticas: Frequências de cura tradicionais e tons Solfeggio</string>
+    <string name="help_volume_safety">Segurança: Volume limitado a 30%% para proteger sua audição</string>
+    <string name="help_wave_types">Tipos de Onda: Diferentes formas de onda produzem conteúdo harmônico diferente</string>
+</resources>

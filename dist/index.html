@@ -92,6 +92,7 @@
             padding: 8px;
             margin: 16px 0;
             position: relative;
+            width: 100%;
         }
         
         .ad-container::before {
@@ -109,10 +110,37 @@
             overflow: hidden;
         }
 
+        /* Mobile first - responsive ad containers */
+        .ad-banner {
+            min-height: 100px;
+        }
+        
+        .ad-square {
+            min-height: 250px;
+            max-width: 300px;
+            margin: 16px auto;
+        }
+
+        /* Tablet and up */
+        @media (min-width: 640px) {
+            .ad-banner {
+                min-height: 120px;
+            }
+            .ad-square {
+                min-height: 280px;
+            }
+        }
+
         /* Desktop responsive improvements */
         @media (min-width: 1024px) {
-            .ad-container {
-                max-width: 400px;
+            .ad-banner {
+                max-width: 728px;
+                min-height: 90px;
+                margin: 16px auto;
+            }
+            .ad-square {
+                max-width: 336px;
+                min-height: 280px;
                 margin: 16px auto;
             }
         }
@@ -150,13 +178,13 @@
             }, []);
 
             return React.createElement('div', {
-                className: 'ad-container my-4 flex justify-center',
-                style: { minHeight: '120px', ...style }
+                className: 'ad-container ad-banner my-4 flex justify-center',
+                style: style
             }, [
                 React.createElement('ins', {
                     key: 'ad',
                     className: 'adsbygoogle',
-                    style: { display: 'block' },
+                    style: { display: 'block', width: '100%', height: 'auto' },
                     'data-ad-client': 'ca-pub-1471423857815501',
                     'data-ad-slot': slot || '1234567890',
                     'data-ad-format': 'auto',
@@ -175,15 +203,16 @@
             }, []);
 
             return React.createElement('div', {
-                className: 'ad-container my-4 flex justify-center',
-                style: { minHeight: '300px' }
+                className: 'ad-container ad-square my-4 flex justify-center items-center'
             }, [
                 React.createElement('ins', {
                     key: 'ad',
                     className: 'adsbygoogle',
-                    style: { display: 'inline-block', width: '300px', height: '250px' },
+                    style: { display: 'block', width: '100%', height: 'auto' },
                     'data-ad-client': 'ca-pub-1471423857815501',
-                    'data-ad-slot': slot || '0987654321'
+                    'data-ad-slot': slot || '0987654321',
+                    'data-ad-format': 'auto',
+                    'data-full-width-responsive': 'true'
                 })
             ]);
         };
@@ -650,21 +679,21 @@
 
                         {/* Category Tabs */}
                         <div className="p-4 border-b lg:p-6">
-                            <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2">
                                 {Object.keys(fullFrequencyDatabase).map((category) => {
                                     const Icon = tabIcons[category];
                                     return (
                                         <button
                                             key={category}
                                             onClick={() => setActiveTab(category)}
-                                            className={`flex items-center justify-center gap-2 py-3 px-2 rounded-xl border-2 transition-all active:scale-95 ${
+                                            className={`flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-3 px-2 sm:px-3 rounded-xl border-2 transition-all active:scale-95 min-h-[44px] ${
                                                 activeTab === category
                                                     ? 'bg-purple-500 text-white border-purple-500 shadow-md'
                                                     : 'bg-white text-gray-700 border-gray-300'
                                             }`}
                                         >
-                                            <Icon className="w-4 h-4" />
-                                            <span className="text-xs font-medium">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                            <Icon className="w-4 h-4 flex-shrink-0" />
+                                            <span className="text-xs sm:text-sm font-medium text-center leading-tight truncate">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                                         </button>
                                     );
                                 })}
